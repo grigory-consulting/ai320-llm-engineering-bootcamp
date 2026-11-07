@@ -1,0 +1,42 @@
+# AI320 LLM Engineering Bootcamp: Python-Pakete der Labs (Python 3.11, CPU)
+# Stand der getesteten Trainer-Umgebung, 28.10.2026. Installation:
+#   python3.11 -m venv .venv && .venv/bin/pip install -r requirements.txt
+# Kursrechner mit Debian 13: scripts/setup_debian13.sh (bringt Python 3.11 und llama.cpp mit).
+# torch: auf Linux ohne GPU zuerst die CPU-Variante installieren, das spart mehrere GB:
+#   .venv/bin/pip install torch==2.14.1 --index-url https://download.pytorch.org/whl/cpu
+# llama.cpp (llama-server, llama-quantize, llama-bench, llama-perplexity) ist kein pip-Paket,
+# sondern ein eigenes Programm im PATH (Lab 6 und Lab 7), siehe README.md.
+
+torch==2.14.1
+transformers==5.21.0
+tokenizers==0.23.2
+accelerate==1.15.0
+peft==0.21.2
+sentence-transformers==6.2.0
+safetensors==0.8.0
+huggingface-hub==1.33.0
+datasets==4.0.0
+gguf==0.19.0
+
+numpy==2.4.6
+pandas==2.3.3
+pyarrow==19.0.1
+scipy==1.17.1
+scikit-learn==1.9.1
+joblib==1.6.0
+matplotlib==3.11.2
+pillow==13.0.0
+
+datasketch==2.0.0
+rank-bm25==0.2.2
+mlflow==2.22.5
+sqlalchemy==2.0.55  # mlflow 2.22 läuft nicht mit sqlalchemy 2.1 (ImportError beim Start)
+openai==3.40.0
+httpx==0.28.1
+prometheus-client==0.26.0
+
+jupyterlab==4.6.5
+ipykernel==7.4.0
+ipywidgets==8.1.9
+jupytext==1.19.6
+nbclient==0.11.0

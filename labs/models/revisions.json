@@ -1,0 +1,10 @@
+{
+  "gpt2": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+  "gbert-base": "d50cb1df9660ff2de1af8a5362d322b3d5a1a28a",
+  "distilbert-german": "6f96562de9886779ce7d48810dff8f5c4afb6d0b",
+  "smollm2-135m": "93efa2f097d58c2a74874c7e644dbc9b0cee75a2",
+  "e5-small": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+  "reranker": "1427fd652930e4ba29e8149678df786c240d8825",
+  "clip-b32": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268",
+  "qwen2.5-0.5b-instruct": "9217f5db79a29953eb74d5343926648285ec7e67"
+}
