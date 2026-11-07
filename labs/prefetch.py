@@ -18,7 +18,7 @@ from huggingface_hub import HfApi, hf_hub_download, snapshot_download
 
 from common import corpus
 from common.models import GGUF, MODELS, TOKENIZER_ONLY
-from common.paths import MODELS_DIR, NORMEN_PARQUET
+from common.paths import MODELS_DIR, NORMS_PARQUET
 
 SKIP = ["onnx/*", "openvino/*", "coreml/*", "*.onnx", "*.h5", "*.ot", "*.msgpack",
         "tf_model*", "flax_model*", "rust_model*", "*.tflite", "pytorch_model.bin", "*.pth"]
@@ -26,8 +26,8 @@ TOKENIZER_FILES = ["tokenizer*", "vocab*", "merges.txt", "special_tokens_map.jso
 
 
 def main(check: bool) -> None:
-    print("Gesetzeskorpus:", "vorhanden" if NORMEN_PARQUET.exists() else "fehlt")
-    if not NORMEN_PARQUET.exists() and not check:
+    print("Gesetzeskorpus:", "vorhanden" if NORMS_PARQUET.exists() else "fehlt")
+    if not NORMS_PARQUET.exists() and not check:
         df = corpus.build()
         print(f"  gebaut: {len(df)} Normen")
     MODELS_DIR.mkdir(parents=True, exist_ok=True)

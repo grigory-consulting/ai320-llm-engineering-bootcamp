@@ -18,15 +18,15 @@ TORCH_VERSION=2.14.1
 PACK_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$PACK_DIR"
 
-MODELLE=1
+MODELS=1
 for arg in "$@"; do
   case "$arg" in
-    --ohne-modelle) MODELLE=0 ;;
+    --ohne-modelle) MODELS=0 ;;
     *) echo "Unbekannte Option: $arg" >&2; exit 2 ;;
   esac
 done
 
-schritt() { printf '\n=== %s\n' "$1"; }
+step() { printf '\n=== %s\n' "$1"; }
 
 if [ "$(id -u)" -eq 0 ]; then
   SUDO=""
@@ -36,7 +36,7 @@ else
   SUDO="sudo"
 fi
 
-schritt "Rechner prüfen"
+step "Rechner prüfen"
 if [ -r /etc/os-release ]; then
   . /etc/os-release
   echo "System: ${PRETTY_NAME:-unbekannt}"
@@ -44,9 +44,9 @@ if [ -r /etc/os-release ]; then
     echo "Hinweis: Das Skript ist für Debian 13 geschrieben, hier läuft etwas anderes."
   fi
 fi
-frei_gb=$(df -BG --output=avail "$PACK_DIR" | tail -1 | tr -dc '0-9')
-echo "Frei im Pack-Ordner: ${frei_gb} GB"
-if [ "$frei_gb" -lt 15 ]; then
+free_gb=$(df -BG --output=avail "$PACK_DIR" | tail -1 | tr -dc '0-9')
+echo "Frei im Pack-Ordner: ${free_gb} GB"
+if [ "$free_gb" -lt 15 ]; then
   echo "Zu wenig Platz: Die Labs brauchen mindestens 15 GB." >&2
   exit 1
 fi
@@ -61,11 +61,11 @@ case "$(uname -m)" in
   *) echo "Nicht unterstützte Architektur: $(uname -m)" >&2; exit 1 ;;
 esac
 
-schritt "Systempakete"
+step "Systempakete"
 $SUDO apt-get update -qq
 $SUDO env DEBIAN_FRONTEND=noninteractive apt-get install -y -qq curl ca-certificates tar libgomp1
 
-schritt "Python ${PYTHON_VERSION} (Debian 13 bringt nur 3.13 mit)"
+step "Python ${PYTHON_VERSION} (Debian 13 bringt nur 3.13 mit)"
 export UV_UNMANAGED_INSTALL="$PACK_DIR/.tools/uv"
 export UV_PYTHON_INSTALL_DIR="$PACK_DIR/.tools/python"
 if [ ! -x "$UV_UNMANAGED_INSTALL/uv" ]; then
@@ -78,11 +78,11 @@ if [ ! -x .venv/bin/python ]; then
 fi
 .venv/bin/python --version
 
-schritt "Python-Pakete (torch als CPU-Variante)"
+step "Python-Pakete (torch als CPU-Variante)"
 .venv/bin/pip install --quiet "torch==${TORCH_VERSION}" --index-url https://download.pytorch.org/whl/cpu
 .venv/bin/pip install --quiet -r requirements.txt
 
-schritt "llama.cpp ${LLAMA_BUILD}"
+step "llama.cpp ${LLAMA_BUILD}"
 LLAMA_DIR="/opt/llama-${LLAMA_BUILD}"
 if [ ! -x "$LLAMA_DIR/llama-server" ]; then
   tmp="$(mktemp -d)"
@@ -91,9 +91,9 @@ if [ ! -x "$LLAMA_DIR/llama-server" ]; then
   echo "${LLAMA_SHA256}  $tmp/$LLAMA_ASSET" | sha256sum -c -
   tar -xzf "$tmp/$LLAMA_ASSET" -C "$tmp"
   rm "$tmp/$LLAMA_ASSET"
-  quelle="$(dirname "$(find "$tmp" -type f -name llama-server | head -1)")"
+  src_dir="$(dirname "$(find "$tmp" -type f -name llama-server | head -1)")"
   $SUDO mkdir -p "$LLAMA_DIR"
-  $SUDO cp -a "$quelle/." "$LLAMA_DIR/"
+  $SUDO cp -a "$src_dir/." "$LLAMA_DIR/"
   rm -rf "$tmp"
 fi
 for prog in llama-server llama-quantize llama-bench llama-perplexity; do
@@ -102,13 +102,13 @@ done
 llama-server --version 2>&1 | head -2
 
 cd labs
-if [ "$MODELLE" -eq 1 ]; then
-  schritt "Korpus und Modelle"
+if [ "$MODELS" -eq 1 ]; then
+  step "Korpus und Modelle"
   ../.venv/bin/python prefetch.py
 fi
 ../.venv/bin/python prefetch.py --check
 
-schritt "Setup-Check"
+step "Setup-Check"
 if ../.venv/bin/python _src/lab0_setup_check.py; then
   echo
   echo "Fertig. Notebooks öffnen: cd labs && ../.venv/bin/jupyter lab"

@@ -13,12 +13,12 @@ import zipfile
 
 import pandas as pd
 
-from common.paths import GESETZE_DIR, NORMEN_PARQUET
+from common.paths import LAWS_DIR, NORMS_PARQUET
 
 BASE_URL = "https://www.gesetze-im-internet.de/{slug}/xml.zip"
 
 # Slug auf gesetze-im-internet.de -> Rechtsgebiet (Zielgröße der Klassifikation in Lab 4)
-GESETZE = {
+LAWS = {
     "bgb": "Zivilrecht", "hgb": "Zivilrecht", "zpo": "Zivilrecht",
     "gmbhg": "Zivilrecht", "aktg": "Zivilrecht", "inso": "Zivilrecht", "urhg": "Zivilrecht",
     "stgb": "Strafrecht", "stpo": "Strafrecht", "owig_1968": "Strafrecht", "jgg": "Strafrecht",
@@ -34,55 +34,55 @@ GESETZE = {
 
 # Elemente, an deren Grenzen ein Leerzeichen stehen muss (Aufzählungen, Tabellen, Umbrüche).
 # itertext() allein klebt sonst "1.die Approbation,2.den Abschluss" zusammen.
-_GRENZE = {"DL", "DT", "DD", "LA", "BR", "table", "tgroup", "thead", "tbody", "row", "entry"}
+_BOUNDARY = {"DL", "DT", "DD", "LA", "BR", "table", "tgroup", "thead", "tbody", "row", "entry"}
 
 
-def _flach(el) -> str:
-    teile = []
+def _flatten(el) -> str:
+    pieces = []
 
-    def lauf(e):
-        if e.tag in _GRENZE:
-            teile.append(" ")
+    def walk(e):
+        if e.tag in _BOUNDARY:
+            pieces.append(" ")
         if e.text:
-            teile.append(e.text)
-        for kind in e:
-            lauf(kind)
-            if kind.tail:
-                teile.append(kind.tail)
-        if e.tag in _GRENZE:
-            teile.append(" ")
+            pieces.append(e.text)
+        for child in e:
+            walk(child)
+            if child.tail:
+                pieces.append(child.tail)
+        if e.tag in _BOUNDARY:
+            pieces.append(" ")
 
-    lauf(el)
-    return re.sub(r"\s+", " ", "".join(teile)).strip()
+    walk(el)
+    return re.sub(r"\s+", " ", "".join(pieces)).strip()
 
 
 def _text(el) -> str:
     if el is None:
         return ""
-    absaetze = [t for t in (_flach(p) for p in el.iter("P")) if t]
-    return "\n".join(absaetze)
+    paragraphs = [t for t in (_flatten(p) for p in el.iter("P")) if t]
+    return "\n".join(paragraphs)
 
 
-def parse_xml(raw: bytes, gesetz: str, rechtsgebiet: str) -> list[dict]:
+def parse_xml(raw: bytes, law_slug: str, area_of_law: str) -> list[dict]:
     root = ET.fromstring(raw)
-    zeilen = []
+    rows = []
     for norm in root.iter("norm"):
         meta = norm.find("metadaten")
-        enbez = (meta.findtext("enbez") or "").strip()
-        if not enbez.startswith(("§", "Art")):
+        designation = (meta.findtext("enbez") or "").strip()
+        if not designation.startswith(("§", "Art")):
             continue
         text = _text(norm.find("textdaten/text/Content"))
         if not text or text in ("-", "(weggefallen)"):
             continue
-        zeilen.append({
-            "gesetz": (meta.findtext("jurabk") or gesetz).strip(),
-            "rechtsgebiet": rechtsgebiet,
-            "enbez": enbez,
+        rows.append({
+            "gesetz": (meta.findtext("jurabk") or law_slug).strip(),
+            "rechtsgebiet": area_of_law,
+            "enbez": designation,
             "titel": (meta.findtext("titel") or "").strip(),
             "text": text,
             "builddate": norm.get("builddate", ""),
         })
-    return zeilen
+    return rows
 
 
 def download(slug: str) -> bytes:
@@ -96,17 +96,17 @@ def download(slug: str) -> bytes:
 
 
 def build() -> pd.DataFrame:
-    GESETZE_DIR.mkdir(parents=True, exist_ok=True)
-    zeilen = []
-    for slug, gebiet in GESETZE.items():
-        zeilen += parse_xml(download(slug), slug, gebiet)
-    df = pd.DataFrame(zeilen)
-    df.to_parquet(NORMEN_PARQUET, index=False)
+    LAWS_DIR.mkdir(parents=True, exist_ok=True)
+    rows = []
+    for slug, area in LAWS.items():
+        rows += parse_xml(download(slug), slug, area)
+    df = pd.DataFrame(rows)
+    df.to_parquet(NORMS_PARQUET, index=False)
     return df
 
 
 def load() -> pd.DataFrame:
     """Lädt den Gesetzeskorpus (eine Zeile je Paragraph/Artikel)."""
-    if not NORMEN_PARQUET.exists():
-        raise FileNotFoundError(f"{NORMEN_PARQUET} fehlt: einmal `python prefetch.py` ausführen")
-    return pd.read_parquet(NORMEN_PARQUET)
+    if not NORMS_PARQUET.exists():
+        raise FileNotFoundError(f"{NORMS_PARQUET} fehlt: einmal `python prefetch.py` ausführen")
+    return pd.read_parquet(NORMS_PARQUET)
