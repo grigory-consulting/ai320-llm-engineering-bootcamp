@@ -5,6 +5,7 @@
 
 
 from sklearn.feature_extraction.text import CountVectorizer
+dataset = dataset['train'].train_test_split(test_size=0.2)
 vectorizer = CountVectorizer( binary=False) 
 X_train = vectorizer.fit_transform([x['sms'] for x in dataset['train']]).toarray()
 X_test = vectorizer.transform([x['sms'] for x in dataset['test']]).toarray()
