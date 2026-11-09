@@ -27,3 +27,25 @@ train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
 
 test_dataset = TensorDataset(X_test_tensor, y_test_tensor)
 test_loader = DataLoader(dataset, batch_size=64, shuffle=False)
+
+
+
+
+model.eval() # Evaluierungsmodus
+with torch.no_grad(): # Gradient wird nicht mehr benötigt 
+    logits = model(X_test_tensor) # Logits, Shape (N, 2)
+    predicted = logits.argmax(dim=1) # Klasse mit dem höchsten Logit
+    acc = (predicted == y_test_tensor).float().mean().item() 
+    print(f'Test set accuracy: {acc*100:.2f}%')
+
+
+def predict_spam(msg):
+    x = vectorizer.transform([msg]).toarray()
+    x_tensor = torch.tensor(x, dtype=torch.float32)
+    model.eval()
+    with torch.no_grad():
+        pred = model(x_tensor).argmax(dim=1).item()
+        return 'SPAM' if pred == 1 else 'Kein Spam'
+
+print(predict_spam('Congratulations, you have won a prize!'))
+print(predict_spam('Are we meeting at 7pm for dinner?'))
