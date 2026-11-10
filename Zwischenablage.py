@@ -1,42 +1,19 @@
-import math
-from pathlib import Path
-import torch
-from torch import nn, optim
-from torch.utils.data import DataLoader
-from torchvision import datasets, transforms
-from tqdm import tqdm
 
 
-batch_size = 128
-num_workers = 4
-
-data_dir = Path("hands-on/data")
-data_dir.mkdir(parents=True, exist_ok=True)
 
 
-cifar_mean = (0.4914, 0.4822, 0.4465)
-cifar_std = (0.2470, 0.2435, 0.2616)
-normalize = transforms.Normalize(mean=cifar_mean, std=cifar_std)
 
-train_transforms = transforms.Compose([
-    transforms.RandomCrop(32, padding=4),
-    transforms.RandomHorizontalFlip(),
-    transforms.ToTensor(),
-    normalize,
-])
-
-test_transforms = transforms.Compose([
-    transforms.ToTensor(),
-    normalize,
-])
+class PatchEmbedding(nn.Module):
+    def __init__(self, img_size = 32, patch_size = 4, in_channels = 3, embed_dim = 128 ): # 
+        super().__init__()
+        self.img_size = img_size
+        self.patch_size = patch_size
+        self.num_patches = (img_size // patch_size) ** 2
+        self.proj = nn.Conv2d(in_channels, embed_dim, kernel_size=patch_size, stride= patch_size)
+    
+    def forward(self,x):
+        x = self.proj(x) # (B, embed_dim, img_size/patch_size, img_size/patch_size )
+        x = x.flatten(2).transpose(1,2) # (B, num_patches, embed_dim)
+        return x 
 
 
-train_ds = datasets.CIFAR10(root=data_dir, train=True, download=True, transform=train_transforms)
-test_ds = datasets.CIFAR10(root=data_dir, train=False, download=True, transform=test_transforms)
-
-pin_memory = device == "cpu"
-train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=num_workers, pin_memory=pin_memory)
-test_loader = DataLoader(test_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=pin_memory)
-
-class_names = train_ds.classes
-print(f"Train samples: {len(train_ds)}, Test samples: {len(test_ds)}")
