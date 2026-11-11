@@ -23,3 +23,15 @@ from common.paths import ARTIFACTS_DIR, MODELS_DIR, SEED
 
 transformers.logging.set_verbosity_error()            # keine Warnung zur Maximallänge: hier wird nur gezählt
 print("Lab-Ordner:", Path.cwd())
+
+
+
+df, source = l2.load_corpus()
+train_df, holdout_df = l2.train_holdout_split(df)
+train, holdout = l2.as_text(train_df), l2.as_text(holdout_df)
+
+print("Holdout-Gesetze:", ", ".join(l2.HOLDOUT_LAWS))
+for name, texts in [("Training", train), ("Holdout", holdout)]:
+    print(f"{name:9s} {format_de(len(texts)):>6} Normen {format_de(sum(map(len, texts))):>12} Zeichen")
+print()
+print(holdout[0][:300])
