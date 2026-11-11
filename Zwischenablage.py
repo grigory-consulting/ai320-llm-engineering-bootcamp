@@ -1,88 +1,29 @@
-
-import os
-import sys
-from pathlib import Path
-
-
-def find_lab_dir() -> Path:
-    starts = [Path.cwd()] + ([Path(__file__).resolve().parent] if "__file__" in globals() else [])
-    for start in starts:
-        for p in [start, *start.parents]:
-            for candidate in (p, p / "labs"):
-                if (candidate / "common" / "paths.py").exists():
-                    return candidate
-    raise FileNotFoundError("Ordner labs/ mit common/ nicht gefunden")
+FUNCTION_WORDS = set("der die das und ist nicht mit von den dem des sich wird werden oder auf für eine einer "
+                       "einem zu nach bei durch als auch wenn zur zum im ein sind bis nur wie über aus kann hat".split())
+LINK = re.compile(r"https?://\S+")
 
 
-os.chdir(find_lab_dir())
-sys.path.insert(0, str(Path.cwd()))
-
-import hashlib
-import re
-import unicodedata
-
-import pandas as pd
-
-from common.lab1_rohkorpus import build_raw_corpus
-from common.paths import ARTIFACTS_DIR
-
-pd.set_option("display.max_colwidth", 90)
+def language_score(text: str) -> float:
+    words = re.findall(r"[a-zäöüß]+", text.lower())
+    return sum(w in FUNCTION_WORDS for w in words) / max(1, len(words))
 
 
-
-raw = build_raw_corpus()
-print(f"{len(raw):,} Dokumente".replace(",", "."))
-print(raw["quelle"].value_counts().to_string())
-print("\n--- eine HTML-Seite, wie sie aus der Textextraktion kommt ---")
-print(raw.loc[raw["quelle"] == "gii-html", "text"].iloc[0])
+def duplicate_line_share(text: str) -> float:              # FineWeb: Zeichenanteil mehrfach vorkommender Zeilen
+    rows = [z.strip() for z in text.split("\n") if z.strip()]
+    duplicate = {z for z in rows if rows.count(z) > 1}
+    return sum(len(z) for z in rows if z in duplicate) / max(1, sum(len(z) for z in rows))
 
 
-
-log = {d: {"navigation_zeilen": 0, "sprache": 0, "pii": None, "dublette": None, "sha256": None,
-           "status": "behalten", "grund": None} for d in raw["doc_id"]}
-
-
-def drop(df: pd.DataFrame, reasons: dict[str, str], status: str = "verworfen") -> pd.DataFrame:
-    """Nimmt die Dokumente aus reasons (doc_id -> Grund) aus df und hält Status und Grund im Protokoll fest."""
-    for d, reason in reasons.items():
-        log[d].update(status=status, grund=reason)
-    return df[~df["doc_id"].isin(reasons)].reset_index(drop=True)
-
-
-df = raw.copy()
-df["norm"] = df["gesetz"].str.cat(df["enbez"], sep=" ") 
-
-
-
-NAVIGATION = {"zurück", "weiter", "Nichtamtliches Inhaltsverzeichnis", "zum Seitenanfang", "Impressum",
-              "Datenschutz", "Barrierefreiheitserklärung", "Feedback-Formular"}
-SINGLE_NORM = re.compile(r"^.+ - Einzelnorm$")             # Titelzeile der Seite: "§ 535 BGB - Einzelnorm"
-
-
-def remove_navigation(text: str) -> tuple[str, int]:
-    rows = text.split("\n")
-    rest = [z for z in rows if z.strip() not in NAVIGATION and not SINGLE_NORM.match(z.strip())]
-    return "\n".join(rest), len(rows) - len(rest)
-
-
-def is_placeholder(text: str) -> bool:                    # ganzer Text in Klammern, z. B. "(weggefallen)"
-    t = text.strip()
-    return t == "-" or ("\n" not in t and t.startswith("(") and t.endswith(")") and len(t.split()) <= 8)
-
-
-fresh = df["text"].map(remove_navigation)                 # je Dokument: (Text ohne Navigation, Zahl der Zeilen)
-df["text"] = fresh.str[0]
-for d, n in zip(df["doc_id"], fresh.str[1]):
-    log[d]["navigation_zeilen"] = int(n)
-placeholders = df["text"].map(is_placeholder)
-print("Dokumente mit Navigation:", (fresh.str[1] > 0).sum())
-print("Platzhalter verworfen:   ", placeholders.sum())
-print(df.loc[placeholders, "text"].value_counts().head(6).to_string())
-df = drop(df, dict.fromkeys(df.loc[placeholders, "doc_id"], "platzhalter"))
-print("\n--- dieselbe HTML-Seite danach ---")
-print(df.loc[df["quelle"] == "gii-html", "text"].iloc[0])
-
-
-
-
-
+score = df["text"].map(language_score)
+for d, s in zip(df["doc_id"], score):
+    log[d]["sprache"] = round(s, 3)
+ads = df["text"].map(lambda t: duplicate_line_share(t) >= 0.1 or len(LINK.findall(t)) >= 2)
+foreign = ~ads & (df["text"].str.split().str.len() >= 10) & (score < 0.1)
+result = pd.Series("behalten", index=df.index).mask(ads, "werbung").mask(foreign, "sprache").rename("Ergebnis")
+print(pd.crosstab(df["quelle"], result))
+print("\nSprachscore der Normen: Median", round(score[df["quelle"] == "gii-xml"].median(), 2))
+forum = df["quelle"] == "web-forum"
+print("\n--- Forum, erste Zeile je Beitrag ---")
+print(pd.DataFrame({"Ergebnis": result[forum], "text": df.loc[forum, "text"].str.split("\n").str[0].str[:75]})
+      .to_string(index=False))
+df = drop(df, {d: r for d, r in zip(df["doc_id"], result) if r != "behalten"})
