@@ -1,0 +1,20 @@
+{
+ "gemischt": {
+  "chunks": "49bef71d143b26b0",
+  "n": 5291,
+  "modell": "intfloat/multilingual-e5-small",
+  "praefix": "passage: "
+ },
+ "paragraph": {
+  "chunks": "7e25454a175a65c4",
+  "n": 3732,
+  "modell": "intfloat/multilingual-e5-small",
+  "praefix": "passage: "
+ },
+ "absatz": {
+  "chunks": "75c0dd133972a245",
+  "n": 8358,
+  "modell": "intfloat/multilingual-e5-small",
+  "praefix": "passage: "
+ }
+}

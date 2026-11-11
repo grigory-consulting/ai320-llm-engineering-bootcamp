@@ -1,0 +1,2401 @@
+{
+ "beschreibung": "Auszug aus den XML-Abzügen von gesetze-im-internet.de für Lab 1: Kopfdaten je Gesetz und alle Einzelnormen ohne Text (Platzhalter), die normen.parquet weglässt. Abgerufen am 2026-10-27.",
+ "abruf": "2026-10-27",
+ "robots_txt": {
+  "url": "https://www.gesetze-im-internet.de/robots.txt",
+  "inhalt": "User-agent: *\nDisallow:",
+  "last_modified": "Mon, 20 Sep 2010 07:57:49 GMT",
+  "abruf": "2026-10-27"
+ },
+ "gesetze": {
+  "bgb": {
+   "jurabk": "BGB",
+   "amtabk": "BGB",
+   "langue": "Bürgerliches Gesetzbuch"
+  },
+  "hgb": {
+   "jurabk": "HGB",
+   "amtabk": null,
+   "langue": "Handelsgesetzbuch"
+  },
+  "zpo": {
+   "jurabk": "ZPO",
+   "amtabk": null,
+   "langue": "Zivilprozessordnung"
+  },
+  "gmbhg": {
+   "jurabk": "GmbHG",
+   "amtabk": "GmbHG",
+   "langue": "Gesetz betreffend die Gesellschaften mit beschränkter Haftung"
+  },
+  "aktg": {
+   "jurabk": "AktG",
+   "amtabk": null,
+   "langue": "Aktiengesetz"
+  },
+  "inso": {
+   "jurabk": "InsO",
+   "amtabk": "InsO",
+   "langue": "Insolvenzordnung"
+  },
+  "urhg": {
+   "jurabk": "UrhG",
+   "amtabk": null,
+   "langue": "Gesetz über Urheberrecht und verwandte Schutzrechte"
+  },
+  "stgb": {
+   "jurabk": "StGB",
+   "amtabk": "StGB",
+   "langue": "Strafgesetzbuch"
+  },
+  "stpo": {
+   "jurabk": "StPO",
+   "amtabk": "StPO",
+   "langue": "Strafprozeßordnung"
+  },
+  "owig_1968": {
+   "jurabk": "OWiG 1968",
+   "amtabk": "OWiG",
+   "langue": "Gesetz über Ordnungswidrigkeiten"
+  },
+  "jgg": {
+   "jurabk": "JGG",
+   "amtabk": "JGG",
+   "langue": "Jugendgerichtsgesetz"
+  },
+  "gg": {
+   "jurabk": "GG",
+   "amtabk": null,
+   "langue": "Grundgesetz für die Bundesrepublik Deutschland"
+  },
+  "vwvfg": {
+   "jurabk": "VwVfG",
+   "amtabk": "VwVfG",
+   "langue": "Verwaltungsverfahrensgesetz"
+  },
+  "vwgo": {
+   "jurabk": "VwGO",
+   "amtabk": "VwGO",
+   "langue": "Verwaltungsgerichtsordnung"
+  },
+  "bdsg_2018": {
+   "jurabk": "BDSG 2018",
+   "amtabk": "BDSG",
+   "langue": "Bundesdatenschutzgesetz"
+  },
+  "bimschg": {
+   "jurabk": "BImSchG",
+   "amtabk": "BImSchG",
+   "langue": "Gesetz zum Schutz vor schädlichen Umwelteinwirkungen durch Luftverunreinigungen, Geräusche, Erschütterungen und ähnliche Vorgänge"
+  },
+  "bbaug": {
+   "jurabk": "BBauG",
+   "amtabk": "BauGB",
+   "langue": "Baugesetzbuch"
+  },
+  "ao_1977": {
+   "jurabk": "AO 1977",
+   "amtabk": "AO",
+   "langue": "Abgabenordnung"
+  },
+  "estg": {
+   "jurabk": "EStG",
+   "amtabk": "EStG",
+   "langue": "Einkommensteuergesetz"
+  },
+  "ustg_1980": {
+   "jurabk": "UStG 1980",
+   "amtabk": "UStG",
+   "langue": "Umsatzsteuergesetz"
+  },
+  "kstg_1977": {
+   "jurabk": "KStG 1977",
+   "amtabk": "KStG",
+   "langue": "Körperschaftsteuergesetz"
+  },
+  "gewstg": {
+   "jurabk": "GewStG",
+   "amtabk": "GewStG",
+   "langue": "Gewerbesteuergesetz"
+  },
+  "sgb_1": {
+   "jurabk": "SGB 1",
+   "amtabk": null,
+   "langue": "Sozialgesetzbuch (SGB) Erstes Buch (I) - Allgemeiner Teil - (Artikel I des Gesetzes vom 11. Dezember 1975, BGBl. I S. 3015)"
+  },
+  "sgb_5": {
+   "jurabk": "SGB 5",
+   "amtabk": null,
+   "langue": "Sozialgesetzbuch (SGB) Fünftes Buch (V) - Gesetzliche Krankenversicherung - (Artikel 1 des Gesetzes v. 20. Dezember 1988, BGBl. I S. 2477)"
+  },
+  "sgb_6": {
+   "jurabk": "SGB 6",
+   "amtabk": null,
+   "langue": "Sozialgesetzbuch (SGB) Sechstes Buch (VI) - Gesetzliche Rentenversicherung - (Artikel 1 des Gesetzes v. 18. Dezember 1989, BGBl. I S. 2261, 1990 I S. 1337)"
+  },
+  "arbzg": {
+   "jurabk": "ArbZG",
+   "amtabk": "ArbZG",
+   "langue": "Arbeitszeitgesetz"
+  },
+  "kschg": {
+   "jurabk": "KSchG",
+   "amtabk": "KSchG",
+   "langue": "Kündigungsschutzgesetz"
+  },
+  "betrvg": {
+   "jurabk": "BetrVG",
+   "amtabk": null,
+   "langue": "Betriebsverfassungsgesetz"
+  }
+ },
+ "platzhalter": [
+  {
+   "slug": "bgb",
+   "enbez": "§ 10",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260926215507"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 23",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260926215507"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 279",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260926215508"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 419",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260926215508"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 509",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260926215508"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 610",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260926215508"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 611b",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260926215508"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 641a",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260926215508"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 651",
+   "titel": "(jetzt § 650)",
+   "text": "",
+   "builddate": "20260926215508"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 764",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 786",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 795",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 835",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 847",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 1300",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 1354",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 1370",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 1389",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 1458",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 1508",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 1633",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 1647",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 1665",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 1672",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 1676",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 1679",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 1683",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260926215509"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 1697",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260926215510"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 2230",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260926215510"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 2260",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260926215510"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 2261",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260926215510"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 2262",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260926215510"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 2264",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260926215510"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 2273",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260926215510"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 2277",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260926215510"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 2334",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260926215510"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 2335",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260926215510"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 2360",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260926215510"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 2364",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260926215510"
+  },
+  {
+   "slug": "bgb",
+   "enbez": "§ 2369",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260926215510"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 4",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215513"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 20",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215513"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 35",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260709215513"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 36",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215513"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 63",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215513"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 73",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215513"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 75b",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215513"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 75e",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215513"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 88",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215513"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 168",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215513"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 172a",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260709215513"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 237",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215513"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 262",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215513"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 269",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215514"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 273",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215514"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 278",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215514"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 287",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215514"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 292a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215514"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 295",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215514"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 302",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215514"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 319a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215514"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 351",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215514"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 370",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215514"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 378",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215514"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 382",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215514"
+  },
+  {
+   "slug": "hgb",
+   "enbez": "§ 451c",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260709215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 10",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 14",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 29b",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 78a",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 93a",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 151",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 223",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 228",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 235",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 292a",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 316",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 357a",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 374",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 433",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 482",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 505",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 510c",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 594",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 601",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 735",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 746",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 761",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215514"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 790",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260930215515"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 791",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215515"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 798a",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260930215515"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 806b",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260930215515"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 812",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260930215515"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 813a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260930215515"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 813b",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260930215515"
+  },
+  {
+   "slug": "zpo",
+   "enbez": "§ 820",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260930215515"
+  },
+  {
+   "slug": "gmbhg",
+   "enbez": "§ 17",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20241231222043"
+  },
+  {
+   "slug": "gmbhg",
+   "enbez": "§ 32a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20241231222043"
+  },
+  {
+   "slug": "gmbhg",
+   "enbez": "§ 32b",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20241231222043"
+  },
+  {
+   "slug": "gmbhg",
+   "enbez": "§ 57b",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20241231222043"
+  },
+  {
+   "slug": "gmbhg",
+   "enbez": "§ 59",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20241231222043"
+  },
+  {
+   "slug": "gmbhg",
+   "enbez": "§ 63",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20241231222043"
+  },
+  {
+   "slug": "gmbhg",
+   "enbez": "§ 64",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20241231222043"
+  },
+  {
+   "slug": "gmbhg",
+   "enbez": "§ 80",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20241231222043"
+  },
+  {
+   "slug": "gmbhg",
+   "enbez": "§ 81",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20241231222043"
+  },
+  {
+   "slug": "gmbhg",
+   "enbez": "§ 83",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20241231222043"
+  },
+  {
+   "slug": "aktg",
+   "enbez": "§ 24",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260506174535"
+  },
+  {
+   "slug": "aktg",
+   "enbez": "§ 40",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260506174535"
+  },
+  {
+   "slug": "aktg",
+   "enbez": "§ 79",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260506174535"
+  },
+  {
+   "slug": "aktg",
+   "enbez": "§ 86",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260506174535"
+  },
+  {
+   "slug": "aktg",
+   "enbez": "§ 128",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260506174535"
+  },
+  {
+   "slug": "aktg",
+   "enbez": "§ 150a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260506174535"
+  },
+  {
+   "slug": "aktg",
+   "enbez": "§ 151",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260506174535"
+  },
+  {
+   "slug": "aktg",
+   "enbez": "§ 159",
+   "titel": "",
+   "text": "-",
+   "builddate": "20260506174535"
+  },
+  {
+   "slug": "aktg",
+   "enbez": "§ 177",
+   "titel": "",
+   "text": "-",
+   "builddate": "20260506174535"
+  },
+  {
+   "slug": "aktg",
+   "enbez": "§ 178",
+   "titel": "",
+   "text": "-",
+   "builddate": "20260506174535"
+  },
+  {
+   "slug": "aktg",
+   "enbez": "§ 190",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260506174535"
+  },
+  {
+   "slug": "aktg",
+   "enbez": "§ 196",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260506174535"
+  },
+  {
+   "slug": "aktg",
+   "enbez": "§ 306",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260506174535"
+  },
+  {
+   "slug": "aktg",
+   "enbez": "§ 325",
+   "titel": "",
+   "text": "-",
+   "builddate": "20260506174535"
+  },
+  {
+   "slug": "aktg",
+   "enbez": "§ 337",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260506174535"
+  },
+  {
+   "slug": "aktg",
+   "enbez": "§ 338",
+   "titel": "",
+   "text": "-",
+   "builddate": "20260506174535"
+  },
+  {
+   "slug": "aktg",
+   "enbez": "§ 406",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260506174535"
+  },
+  {
+   "slug": "inso",
+   "enbez": "§ 7",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260910215519"
+  },
+  {
+   "slug": "inso",
+   "enbez": "§ 114",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260910215519"
+  },
+  {
+   "slug": "inso",
+   "enbez": "§ 291",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260910215519"
+  },
+  {
+   "slug": "urhg",
+   "enbez": "§ 24",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260529215505"
+  },
+  {
+   "slug": "urhg",
+   "enbez": "§ 53a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260529215505"
+  },
+  {
+   "slug": "urhg",
+   "enbez": "§ 84",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260529215505"
+  },
+  {
+   "slug": "urhg",
+   "enbez": "§ 91",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260529215505"
+  },
+  {
+   "slug": "urhg",
+   "enbez": "§ 137k",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260529215505"
+  },
+  {
+   "slug": "urhg",
+   "enbez": "§ 139",
+   "titel": "Änderung der Strafprozessordnung",
+   "text": "-",
+   "builddate": "20260529215505"
+  },
+  {
+   "slug": "urhg",
+   "enbez": "§ 140",
+   "titel": "Änderung des Gesetzes über das am 6. September 1952\nunterzeichnete Welturheberrechtsabkommen",
+   "text": "-",
+   "builddate": "20260529215505"
+  },
+  {
+   "slug": "urhg",
+   "enbez": "§ 141",
+   "titel": "Aufgehobene Vorschriften",
+   "text": "-",
+   "builddate": "20260529215505"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 48",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 65",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 80",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 103",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 106a",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 110",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 112",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 122",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 135",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 137",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 141",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 143",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 144",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 145b",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 163",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 175",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 179",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 184d",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 191",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 219a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 219c",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 219d",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 220",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 220a",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 248",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 254",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 272",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 280",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 296",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 302",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 323",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 338",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 353c",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stgb",
+   "enbez": "§ 354",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260928220003"
+  },
+  {
+   "slug": "stpo",
+   "enbez": "§ 39",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215503"
+  },
+  {
+   "slug": "stpo",
+   "enbez": "§ 150",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215503"
+  },
+  {
+   "slug": "stpo",
+   "enbez": "§ 198",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215503"
+  },
+  {
+   "slug": "stpo",
+   "enbez": "§ 208",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215503"
+  },
+  {
+   "slug": "stpo",
+   "enbez": "§ 334",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215503"
+  },
+  {
+   "slug": "stpo",
+   "enbez": "§ 456b",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215504"
+  },
+  {
+   "slug": "owig_1968",
+   "enbez": "§ 48",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260506174757"
+  },
+  {
+   "slug": "owig_1968",
+   "enbez": "§ 54",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260506174757"
+  },
+  {
+   "slug": "jgg",
+   "enbez": "§ 19",
+   "titel": "",
+   "text": "-",
+   "builddate": "20260506174835"
+  },
+  {
+   "slug": "jgg",
+   "enbez": "§ 20",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260506174835"
+  },
+  {
+   "slug": "jgg",
+   "enbez": "§ 49",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260506174835"
+  },
+  {
+   "slug": "jgg",
+   "enbez": "§ 75",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260506174835"
+  },
+  {
+   "slug": "jgg",
+   "enbez": "§ 91",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260506174835"
+  },
+  {
+   "slug": "jgg",
+   "enbez": "§ 112b",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260506174835"
+  },
+  {
+   "slug": "jgg",
+   "enbez": "§ 115",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260506174835"
+  },
+  {
+   "slug": "gg",
+   "enbez": "Art 49",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260506174650"
+  },
+  {
+   "slug": "gg",
+   "enbez": "Art 59a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260506174650"
+  },
+  {
+   "slug": "gg",
+   "enbez": "Art 142a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260506174650"
+  },
+  {
+   "slug": "vwvfg",
+   "enbez": "§ 97",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260728215523"
+  },
+  {
+   "slug": "vwvfg",
+   "enbez": "§ 98",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260728215523"
+  },
+  {
+   "slug": "vwvfg",
+   "enbez": "§ 99",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260728215523"
+  },
+  {
+   "slug": "vwgo",
+   "enbez": "§ 31",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261008215501"
+  },
+  {
+   "slug": "vwgo",
+   "enbez": "§ 41",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261008215501"
+  },
+  {
+   "slug": "vwgo",
+   "enbez": "§ 59",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261008215501"
+  },
+  {
+   "slug": "vwgo",
+   "enbez": "§ 76",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261008215501"
+  },
+  {
+   "slug": "vwgo",
+   "enbez": "§ 86a",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261008215501"
+  },
+  {
+   "slug": "vwgo",
+   "enbez": "§ 131",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261008215501"
+  },
+  {
+   "slug": "vwgo",
+   "enbez": "§ 136",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261008215501"
+  },
+  {
+   "slug": "vwgo",
+   "enbez": "§ 145",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261008215501"
+  },
+  {
+   "slug": "vwgo",
+   "enbez": "§ 157",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261008215501"
+  },
+  {
+   "slug": "bbaug",
+   "enbez": "§ 20",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260930215508"
+  },
+  {
+   "slug": "bbaug",
+   "enbez": "§ 21",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260930215508"
+  },
+  {
+   "slug": "bbaug",
+   "enbez": "§ 23",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260930215508"
+  },
+  {
+   "slug": "bbaug",
+   "enbez": "§ 237",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260930215508"
+  },
+  {
+   "slug": "bbaug",
+   "enbez": "§ 240",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260930215508"
+  },
+  {
+   "slug": "bbaug",
+   "enbez": "§ 241",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260930215508"
+  },
+  {
+   "slug": "ao_1977",
+   "enbez": "§ 223",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260930215518"
+  },
+  {
+   "slug": "ao_1977",
+   "enbez": "§ 275",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260930215518"
+  },
+  {
+   "slug": "ao_1977",
+   "enbez": "§ 343",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260930215518"
+  },
+  {
+   "slug": "ao_1977",
+   "enbez": "§ 349",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260930215518"
+  },
+  {
+   "slug": "ao_1977",
+   "enbez": "§ 368",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260930215518"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 4j",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261021215504"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 7e",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261021215504"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 7f",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261021215504"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 7k",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261021215504"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 10h",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261021215504"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 10i",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261021215504"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 27",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261021215504"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 34e",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261021215504"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 39d",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261021215504"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 42c",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261021215504"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 47",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261021215504"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 52a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261021215505"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 52b",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261021215505"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 53",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261021215505"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 54",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261021215505"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 72",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261021215505"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 73",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261021215505"
+  },
+  {
+   "slug": "estg",
+   "enbez": "§ 76a",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261021215505"
+  },
+  {
+   "slug": "ustg_1980",
+   "enbez": "§ 3f",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260831215512"
+  },
+  {
+   "slug": "ustg_1980",
+   "enbez": "§ 13d",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260831215512"
+  },
+  {
+   "slug": "ustg_1980",
+   "enbez": "§ 23",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260831215512"
+  },
+  {
+   "slug": "ustg_1980",
+   "enbez": "§ 25d",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260831215512"
+  },
+  {
+   "slug": "ustg_1980",
+   "enbez": "§ 26b",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260831215512"
+  },
+  {
+   "slug": "kstg_1977",
+   "enbez": "§ 18",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260506175045"
+  },
+  {
+   "slug": "kstg_1977",
+   "enbez": "§ 40",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20260506175045"
+  },
+  {
+   "slug": "gewstg",
+   "enbez": "§ 8a",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260804215507"
+  },
+  {
+   "slug": "gewstg",
+   "enbez": "§ 17",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260804215507"
+  },
+  {
+   "slug": "gewstg",
+   "enbez": "§ 32",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260804215507"
+  },
+  {
+   "slug": "gewstg",
+   "enbez": "§ 35",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260804215507"
+  },
+  {
+   "slug": "gewstg",
+   "enbez": "§ 37",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260804215507"
+  },
+  {
+   "slug": "sgb_1",
+   "enbez": "§ 20",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260728215525"
+  },
+  {
+   "slug": "sgb_1",
+   "enbez": "§ 55",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260728215525"
+  },
+  {
+   "slug": "sgb_1",
+   "enbez": "§ 72",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20260728215525"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 30",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261023215508"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 30a",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261023215508"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 54",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261023215508"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 59",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261023215508"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 62a",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261023215508"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 68",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215508"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 73a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215508"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 85b",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261023215508"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 85c",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215508"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 85d",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261023215508"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 87d",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215508"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 102",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261023215508"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 123",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 141",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 171",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 171a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 171b",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 171c",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 171d",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 171e",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 171f",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 172",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 172a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 177",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 215",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 216",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 217",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 219c",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 221b",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 222",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 242b",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 259",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 291d",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 291e",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 291f",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 291g",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 291h",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 375",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 394",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 412",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_5",
+   "enbez": "§ 415",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261023215509"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 29",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261020215511"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 30",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261020215511"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 39",
+   "titel": "(weggefallen)",
+   "text": "-",
+   "builddate": "20261020215511"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 44",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261020215511"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 86",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 94",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 95",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 146",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 164",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 208",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 218",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 254b",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 254c",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 255a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 255b",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 255f",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 264a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 267",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 269a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 270",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 270a",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 275",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 279b",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 279e",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 279f",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 281a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 283",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 287a",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 287c",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 287e",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 287f",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 288",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 316",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "sgb_6",
+   "enbez": "§ 318",
+   "titel": "(weggefallen)",
+   "text": "",
+   "builddate": "20261020215512"
+  },
+  {
+   "slug": "arbzg",
+   "enbez": "§ 26",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20241231222246"
+  },
+  {
+   "slug": "betrvg",
+   "enbez": "§ 6",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260713215501"
+  },
+  {
+   "slug": "betrvg",
+   "enbez": "§ 10",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260713215501"
+  },
+  {
+   "slug": "betrvg",
+   "enbez": "§ 12",
+   "titel": "",
+   "text": "(weggefallen)",
+   "builddate": "20260713215501"
+  }
+ ]
+}

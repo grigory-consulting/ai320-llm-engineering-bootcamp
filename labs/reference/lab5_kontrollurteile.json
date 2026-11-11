@@ -1,0 +1,142 @@
+{
+ "herkunft": "Kontrollurteile zu den 22 inhaltlichen Antworten der Demo (Abschnitt 4, Kontext: fünf dichte Treffer, Generator gpt-4.1-mini, Antworten aus lab5_antworten.json). Erstellt bei der Korrektur von Lab 5 am 2026-10-28 von Claude (KI-Assistent des Lab-Autors), nicht vom Judge-Modell und ohne LLM-Aufruf: jede Antwort von Hand gegen die Chunks im Kontext und gegen 'kern' in lab5_fragen.json gelesen. Eigene Kontrollurteile, keine Expertenurteile.",
+ "gegengelesen": "nein: vom Trainer vor dem Kurs gegenzulesen und hier mit Datum einzutragen",
+ "skala": {
+  "kontext_traegt": "true, wenn jede inhaltliche Aussage der Antwort durch die Chunks im Kontext gedeckt ist (dasselbe Kriterium wie beim LLM-Judge)",
+  "kern": "richtig: Kernaussage getroffen und mit der einschlägigen Norm begründet; teilweise: Ergebnis getroffen, aber mit falscher oder fehlender Begründung oder einer falschen Nebenaussage; falsch: Kernaussage verfehlt"
+ },
+ "urteile": [
+  {
+   "id": "F01",
+   "kontext_traegt": false,
+   "kern": "falsch",
+   "begruendung": "Liest § 476 Abs. 2 falsch: Die Norm verbietet bei gebrauchten Waren eine vertragliche Verkürzung unter ein Jahr, die Antwort macht daraus eine Mindestfrist von einem Jahr und knüpft die Bedingungen an eine Verkürzung unter ein Jahr. Die gesetzliche Frist von zwei Jahren ab Ablieferung (§ 438) fehlt."
+  },
+  {
+   "id": "F04",
+   "kontext_traegt": false,
+   "kern": "teilweise",
+   "begruendung": "Das Ergebnis (Kauf vom Taschengeld wirksam) stimmt, steht aber nicht im Kontext: § 110 fehlt dort, die Antwort belegt diesen Teil nicht. § 109 gibt das Widerrufsrecht dem Vertragspartner, nicht den Eltern; der Schlusssatz liest das falsch."
+  },
+  {
+   "id": "F06",
+   "kontext_traegt": true,
+   "kern": "richtig",
+   "begruendung": "Gibt § 910 Abs. 1 und 2 richtig wieder: Wurzeln sofort, Zweige erst nach erfolgloser angemessener Frist."
+  },
+  {
+   "id": "F07",
+   "kontext_traegt": true,
+   "kern": "richtig",
+   "begruendung": "Tierhalterhaftung nach § 833 Satz 1 richtig. Dass die Ausnahme für Nutztiere beim Hund auf dem Spaziergang in der Regel nicht greift, ist eine vorsichtige Folgerung aus dem Normtext."
+  },
+  {
+   "id": "F09",
+   "kontext_traegt": true,
+   "kern": "richtig",
+   "begruendung": "Eigenhändiges Testament nach § 2247 richtig, Soll-Angaben und Abs. 4 korrekt; § 2232 und § 2064 passend ergänzt."
+  },
+  {
+   "id": "F10",
+   "kontext_traegt": true,
+   "kern": "richtig",
+   "begruendung": "§ 622 Abs. 2 Nr. 3: nach acht Jahren drei Monate zum Ende eines Kalendermonats."
+  },
+  {
+   "id": "F11",
+   "kontext_traegt": true,
+   "kern": "richtig",
+   "begruendung": "§ 623: Schriftform, elektronische Form ausgeschlossen, also per E-Mail unwirksam."
+  },
+  {
+   "id": "F12",
+   "kontext_traegt": false,
+   "kern": "teilweise",
+   "begruendung": "Ergebnis (Nachbesserung verlangen, der Fliesenleger trägt die Kosten) trifft den Kern, die Begründung nicht: § 434 Abs. 4 ist Kaufrecht (Montage durch den Verkäufer), der Fall ist ein Werkvertrag, §§ 634 und 635 fehlen im Kontext. Zu § 641 Abs. 3 widerspricht sich die Antwort ('das Doppelte', dann 'in Höhe der voraussichtlichen Kosten'), die Bedingung 'sofern von ihm zu vertreten' steht nicht im Kontext."
+  },
+  {
+   "id": "F13",
+   "kontext_traegt": true,
+   "kern": "richtig",
+   "begruendung": "§ 971 richtig angewandt (5 % von 300 Euro = 15 Euro). Auch der Satz zum Mehrwert über 500 Euro gibt die Norm richtig wieder."
+  },
+  {
+   "id": "F16",
+   "kontext_traegt": false,
+   "kern": "teilweise",
+   "begruendung": "Leitet 'nicht strafbar, wenn Sie sich nur verteidigt haben' aus § 231 Abs. 2 ab; der Absatz betrifft nur die Strafbarkeit wegen Beteiligung an einer Schlägerei. Notwehr (§ 32) fehlt im Kontext, das sagt die Antwort selbst. Das Ergebnis zeigt in die richtige Richtung, die Begründung trägt es nicht, und die Grenze der erforderlichen Verteidigung fehlt."
+  },
+  {
+   "id": "F18",
+   "kontext_traegt": true,
+   "kern": "teilweise",
+   "begruendung": "Gibt § 201 StGB richtig wieder und folgert vorsichtig, dass die Polizei eine gesetzliche Grundlage braucht; im Ergebnis trifft das den Kern. Die tragende Norm (Art. 10 GG, Fernmeldegeheimnis) fehlt im Kontext; Art. 91 GG ist für die Frage ohne Belang, was die Antwort selbst sagt."
+  },
+  {
+   "id": "F19",
+   "kontext_traegt": true,
+   "kern": "richtig",
+   "begruendung": "Art. 8 Abs. 1 und 2 GG richtig: ohne Anmeldung oder Erlaubnis, unter freiem Himmel durch Gesetz beschränkbar."
+  },
+  {
+   "id": "F20",
+   "kontext_traegt": true,
+   "kern": "richtig",
+   "begruendung": "§ 3 ArbZG richtig (acht Stunden, bis zehn mit Ausgleich); § 6 Abs. 2 für Nachtarbeit passend ergänzt."
+  },
+  {
+   "id": "F21",
+   "kontext_traegt": true,
+   "kern": "richtig",
+   "begruendung": "§ 1 BetrVG richtig (fünf ständige Wahlberechtigte, drei wählbar), § 9 und § 14a richtig wiedergegeben. Dass alle sieben wahlberechtigt sind, unterstellt die Antwort."
+  },
+  {
+   "id": "F22",
+   "kontext_traegt": true,
+   "kern": "richtig",
+   "begruendung": "§ 4 KSchG: drei Wochen nach Zugang der schriftlichen Kündigung."
+  },
+  {
+   "id": "F26",
+   "kontext_traegt": true,
+   "kern": "richtig",
+   "begruendung": "Wirkung nach § 883 Abs. 2 und 3 richtig; der erste Satz beschreibt eher die Voraussetzung als die Wirkung, ist aber nicht falsch."
+  },
+  {
+   "id": "F27",
+   "kontext_traegt": true,
+   "kern": "richtig",
+   "begruendung": "§ 138 Abs. 1 und 2 richtig wiedergegeben."
+  },
+  {
+   "id": "F28",
+   "kontext_traegt": true,
+   "kern": "richtig",
+   "begruendung": "§ 117 Abs. 1 und 2 richtig: Scheingeschäft nichtig, verdecktes Geschäft nach seinen Regeln."
+  },
+  {
+   "id": "F29",
+   "kontext_traegt": true,
+   "kern": "richtig",
+   "begruendung": "§ 477 richtig: ein Jahr, bei Tieren sechs Monate; Abs. 2 zu digitalen Elementen korrekt ergänzt."
+  },
+  {
+   "id": "F30",
+   "kontext_traegt": true,
+   "kern": "richtig",
+   "begruendung": "§ 626 Abs. 2: zwei Wochen ab Kenntnis der maßgebenden Tatsachen."
+  },
+  {
+   "id": "F31",
+   "kontext_traegt": true,
+   "kern": "richtig",
+   "begruendung": "§ 823 Abs. 1 und 2 richtig wiedergegeben."
+  },
+  {
+   "id": "F33",
+   "kontext_traegt": true,
+   "kern": "richtig",
+   "begruendung": "Art. 1 Abs. 1 Satz 2 GG: die Würde des Menschen achten und schützen."
+  }
+ ]
+}

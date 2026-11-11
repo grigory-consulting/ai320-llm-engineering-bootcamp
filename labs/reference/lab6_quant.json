@@ -1,0 +1,463 @@
+{
+ "plattform": "Apple M3 Max, 16 logische Kerne",
+ "threads": "nur CPU (-ngl 0), Threads nach llama.cpp-Standard",
+ "stufen": {
+  "F16": {
+   "bytes": 270885024,
+   "ppl": 11.8756,
+   "ppl_se": 0.49567,
+   "kld": null,
+   "bench": [
+    {
+     "test": "pp",
+     "n": 512,
+     "t_s": 1679.940585,
+     "sd": 254.479815,
+     "threads": 12
+    },
+    {
+     "test": "tg",
+     "n": 64,
+     "t_s": 213.219121,
+     "sd": 5.228263,
+     "threads": 12
+    }
+   ],
+   "typen": {
+    "F16": {
+     "tensoren": 211,
+     "parameter": 134479872,
+     "bytes": 268959744
+    },
+    "F32": {
+     "tensoren": 61,
+     "parameter": 35136,
+     "bytes": 140544
+    }
+   }
+  },
+  "Q8_0": {
+   "bytes": 144810208,
+   "ppl": 11.95,
+   "ppl_se": 0.49996,
+   "kld": {
+    "ln_ratio": 0.006331,
+    "ln_ratio_se": 0.001669,
+    "kld": 0.005221,
+    "kld_se": 0.000108,
+    "same_top": 94.593,
+    "same_top_se": 0.366
+   },
+   "bench": [
+    {
+     "test": "pp",
+     "n": 512,
+     "t_s": 3088.334513,
+     "sd": 89.504416,
+     "threads": 12
+    },
+    {
+     "test": "tg",
+     "n": 64,
+     "t_s": 341.748693,
+     "sd": 7.81142,
+     "threads": 12
+    }
+   ],
+   "typen": {
+    "F32": {
+     "tensoren": 61,
+     "parameter": 35136,
+     "bytes": 140544
+    },
+    "Q8_0": {
+     "tensoren": 211,
+     "parameter": 134479872,
+     "bytes": 142884864
+    }
+   }
+  },
+  "Q5_K_M": {
+   "bytes": 112102624,
+   "ppl": 12.4224,
+   "ppl_se": 0.5216,
+   "kld": {
+    "ln_ratio": 0.045097,
+    "ln_ratio_se": 0.005176,
+    "kld": 0.047953,
+    "kld_se": 0.001008,
+    "same_top": 85.722,
+    "same_top_se": 0.567
+   },
+   "bench": [
+    {
+     "test": "pp",
+     "n": 512,
+     "t_s": 1748.553174,
+     "sd": 30.067338,
+     "threads": 12
+    },
+    {
+     "test": "tg",
+     "n": 64,
+     "t_s": 353.161239,
+     "sd": 35.075141,
+     "threads": 12
+    }
+   ],
+   "typen": {
+    "F32": {
+     "tensoren": 61,
+     "parameter": 35136,
+     "bytes": 140544
+    },
+    "Q8_0": {
+     "tensoren": 15,
+     "parameter": 29859840,
+     "bytes": 31726080
+    },
+    "Q5_1": {
+     "tensoren": 166,
+     "parameter": 78077952,
+     "bytes": 58558464
+    },
+    "Q6_K": {
+     "tensoren": 14,
+     "parameter": 12386304,
+     "bytes": 10160640
+    },
+    "Q5_K": {
+     "tensoren": 16,
+     "parameter": 14155776,
+     "bytes": 9732096
+    }
+   }
+  },
+  "Q4_K_M": {
+   "bytes": 105453280,
+   "ppl": 12.7258,
+   "ppl_se": 0.52932,
+   "kld": {
+    "ln_ratio": 0.069229,
+    "ln_ratio_se": 0.006211,
+    "kld": 0.069297,
+    "kld_se": 0.001524,
+    "same_top": 84.961,
+    "same_top_se": 0.579
+   },
+   "bench": [
+    {
+     "test": "pp",
+     "n": 512,
+     "t_s": 1602.779626,
+     "sd": 101.228476,
+     "threads": 12
+    },
+    {
+     "test": "tg",
+     "n": 64,
+     "t_s": 405.590001,
+     "sd": 9.744588,
+     "threads": 12
+    }
+   ],
+   "typen": {
+    "F32": {
+     "tensoren": 61,
+     "parameter": 35136,
+     "bytes": 140544
+    },
+    "Q8_0": {
+     "tensoren": 15,
+     "parameter": 29859840,
+     "bytes": 31726080
+    },
+    "Q5_0": {
+     "tensoren": 166,
+     "parameter": 78077952,
+     "bytes": 53678592
+    },
+    "Q6_K": {
+     "tensoren": 14,
+     "parameter": 12386304,
+     "bytes": 10160640
+    },
+    "Q4_K": {
+     "tensoren": 16,
+     "parameter": 14155776,
+     "bytes": 7962624
+    }
+   }
+  },
+  "Q6_K": {
+   "bytes": 138382048,
+   "ppl": 12.0877,
+   "ppl_se": 0.50452,
+   "kld": {
+    "ln_ratio": 0.01779,
+    "ln_ratio_se": 0.002798,
+    "kld": 0.014809,
+    "kld_se": 0.000296,
+    "same_top": 91.627,
+    "same_top_se": 0.449
+   },
+   "bench": [
+    {
+     "test": "pp",
+     "n": 512,
+     "t_s": 2313.824833,
+     "sd": 172.121314,
+     "threads": 12
+    },
+    {
+     "test": "tg",
+     "n": 64,
+     "t_s": 357.914974,
+     "sd": 10.094452,
+     "threads": 12
+    }
+   ],
+   "typen": {
+    "F32": {
+     "tensoren": 61,
+     "parameter": 35136,
+     "bytes": 140544
+    },
+    "Q8_0": {
+     "tensoren": 181,
+     "parameter": 107937792,
+     "bytes": 114683904
+    },
+    "Q6_K": {
+     "tensoren": 30,
+     "parameter": 26542080,
+     "bytes": 21772800
+    }
+   }
+  },
+  "Q4_K_S": {
+   "bytes": 102038752,
+   "ppl": 14.1763,
+   "ppl_se": 0.60077,
+   "kld": {
+    "ln_ratio": 0.177171,
+    "ln_ratio_se": 0.009735,
+    "kld": 0.170168,
+    "kld_se": 0.003333,
+    "same_top": 76.352,
+    "same_top_se": 0.688
+   },
+   "bench": [
+    {
+     "test": "pp",
+     "n": 512,
+     "t_s": 1576.631169,
+     "sd": 57.341002,
+     "threads": 12
+    },
+    {
+     "test": "tg",
+     "n": 64,
+     "t_s": 385.453166,
+     "sd": 8.292797,
+     "threads": 12
+    }
+   ],
+   "typen": {
+    "F32": {
+     "tensoren": 61,
+     "parameter": 35136,
+     "bytes": 140544
+    },
+    "Q8_0": {
+     "tensoren": 1,
+     "parameter": 28311552,
+     "bytes": 30081024
+    },
+    "Q5_0": {
+     "tensoren": 176,
+     "parameter": 79183872,
+     "bytes": 54438912
+    },
+    "Q5_1": {
+     "tensoren": 4,
+     "parameter": 442368,
+     "bytes": 331776
+    },
+    "Q5_K": {
+     "tensoren": 3,
+     "parameter": 2654208,
+     "bytes": 1824768
+    },
+    "Q4_K": {
+     "tensoren": 27,
+     "parameter": 23887872,
+     "bytes": 13436928
+    }
+   }
+  },
+  "Q4_0": {
+   "bytes": 91726048,
+   "ppl": 16.619,
+   "ppl_se": 0.70299,
+   "kld": {
+    "ln_ratio": 0.336145,
+    "ln_ratio_se": 0.014185,
+    "kld": 0.33734,
+    "kld_se": 0.006479,
+    "same_top": 64.121,
+    "same_top_se": 0.777
+   },
+   "bench": [
+    {
+     "test": "pp",
+     "n": 512,
+     "t_s": 2955.792961,
+     "sd": 31.000683,
+     "threads": 12
+    },
+    {
+     "test": "tg",
+     "n": 64,
+     "t_s": 423.245935,
+     "sd": 3.102302,
+     "threads": 12
+    }
+   ],
+   "typen": {
+    "F32": {
+     "tensoren": 61,
+     "parameter": 35136,
+     "bytes": 140544
+    },
+    "Q8_0": {
+     "tensoren": 1,
+     "parameter": 28311552,
+     "bytes": 30081024
+    },
+    "Q4_0": {
+     "tensoren": 210,
+     "parameter": 106168320,
+     "bytes": 59719680
+    }
+   }
+  },
+  "Q3_K_M": {
+   "bytes": 93509344,
+   "ppl": 16.1136,
+   "ppl_se": 0.6917,
+   "kld": {
+    "ln_ratio": 0.305262,
+    "ln_ratio_se": 0.013042,
+    "kld": 0.30116,
+    "kld_se": 0.005354,
+    "same_top": 67.533,
+    "same_top_se": 0.759
+   },
+   "bench": [
+    {
+     "test": "pp",
+     "n": 512,
+     "t_s": 2257.6638,
+     "sd": 27.442995,
+     "threads": 12
+    },
+    {
+     "test": "tg",
+     "n": 64,
+     "t_s": 406.910083,
+     "sd": 3.199893,
+     "threads": 12
+    }
+   ],
+   "typen": {
+    "F32": {
+     "tensoren": 61,
+     "parameter": 35136,
+     "bytes": 140544
+    },
+    "Q8_0": {
+     "tensoren": 1,
+     "parameter": 28311552,
+     "bytes": 30081024
+    },
+    "Q4_0": {
+     "tensoren": 120,
+     "parameter": 66355200,
+     "bytes": 37324800
+    },
+    "Q5_0": {
+     "tensoren": 58,
+     "parameter": 13049856,
+     "bytes": 8971776
+    },
+    "Q5_1": {
+     "tensoren": 2,
+     "parameter": 221184,
+     "bytes": 165888
+    },
+    "Q5_K": {
+     "tensoren": 1,
+     "parameter": 884736,
+     "bytes": 608256
+    },
+    "Q4_K": {
+     "tensoren": 29,
+     "parameter": 25657344,
+     "bytes": 14432256
+    }
+   }
+  },
+  "Q2_K": {
+   "bytes": 88200928,
+   "ppl": 19.9171,
+   "ppl_se": 0.8383,
+   "kld": {
+    "ln_ratio": 0.517176,
+    "ln_ratio_se": 0.017722,
+    "kld": 0.526914,
+    "kld_se": 0.009568,
+    "same_top": 56.667,
+    "same_top_se": 0.803
+   },
+   "bench": [
+    {
+     "test": "pp",
+     "n": 512,
+     "t_s": 2575.258706,
+     "sd": 35.648674,
+     "threads": 12
+    },
+    {
+     "test": "tg",
+     "n": 64,
+     "t_s": 367.451797,
+     "sd": 4.195748,
+     "threads": 12
+    }
+   ],
+   "typen": {
+    "F32": {
+     "tensoren": 61,
+     "parameter": 35136,
+     "bytes": 140544
+    },
+    "Q8_0": {
+     "tensoren": 1,
+     "parameter": 28311552,
+     "bytes": 30081024
+    },
+    "Q4_0": {
+     "tensoren": 180,
+     "parameter": 79626240,
+     "bytes": 44789760
+    },
+    "Q3_K": {
+     "tensoren": 30,
+     "parameter": 26542080,
+     "bytes": 11404800
+    }
+   }
+  }
+ }
+}

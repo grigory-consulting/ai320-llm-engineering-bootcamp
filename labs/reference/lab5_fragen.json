@@ -1,0 +1,369 @@
+{
+ "herkunft": "Von Hand formuliert für Lab 5 (AI320), Stand 2026-10-27. Umgangssprachliche Fragen beschreiben einen Fall in Alltagssprache und übernehmen keine Formulierungen aus dem Normtext; Fachbegriff-Fragen benutzen den juristischen Begriff, nach dem jemand mit Vorwissen sucht; Normzitat-Fragen nennen die Fundstelle. Gold-Normen am Normtext des Korpus geprüft (gesetze-im-internet.de, builddate im Korpus). Unbeantwortbare Fragen zielen auf Normen außerhalb des Index (Gesetz nicht im Korpus oder nicht indexiert). 'kern' ist die erwartete Kernaussage zur Kontrolle von Hand, nicht Teil der Bewertung.",
+ "index_gesetze": [
+  "BGB",
+  "StGB",
+  "GG",
+  "UrhG",
+  "BetrVG",
+  "KSchG",
+  "ArbZG",
+  "BDSG 2018"
+ ],
+ "fragen": [
+  {
+   "id": "F01",
+   "typ": "umgangssprachlich",
+   "frage": "Ich habe vor einem Jahr einen gebrauchten Wagen von einem Händler gekauft, jetzt ist das Getriebe kaputt. Wie lange kann ich deswegen noch Ansprüche stellen?",
+   "gold": [
+    "bgb#438"
+   ],
+   "kern": "zwei Jahre ab Ablieferung (Abs. 1 Nr. 3, Abs. 2)"
+  },
+  {
+   "id": "F02",
+   "typ": "umgangssprachlich",
+   "frage": "Wie viel Kaution darf mein Vermieter höchstens von mir verlangen?",
+   "gold": [
+    "bgb#551"
+   ],
+   "kern": "höchstens drei Monatsmieten ohne Betriebskosten"
+  },
+  {
+   "id": "F03",
+   "typ": "umgangssprachlich",
+   "frage": "Ich will aus meiner Mietwohnung ausziehen. Bis wann muss ich spätestens Bescheid geben?",
+   "gold": [
+    "bgb#573c"
+   ],
+   "kern": "spätestens am dritten Werktag eines Monats zum Ablauf des übernächsten Monats"
+  },
+  {
+   "id": "F04",
+   "typ": "umgangssprachlich",
+   "frage": "Darf meine zwölfjährige Tochter von ihrem Taschengeld allein ein Videospiel kaufen?",
+   "gold": [
+    "bgb#110"
+   ],
+   "kern": "wirksam, wenn mit überlassenen Mitteln bezahlt"
+  },
+  {
+   "id": "F05",
+   "typ": "umgangssprachlich",
+   "frage": "Ich habe im Internet eine Jacke bestellt. Wie lange habe ich Zeit, es mir anders zu überlegen?",
+   "gold": [
+    "bgb#355"
+   ],
+   "kern": "14 Tage"
+  },
+  {
+   "id": "F06",
+   "typ": "umgangssprachlich",
+   "frage": "Die Äste vom Baum meines Nachbarn hängen über den Zaun auf mein Grundstück. Darf ich sie einfach abschneiden?",
+   "gold": [
+    "bgb#910"
+   ],
+   "kern": "erst nach erfolgloser angemessener Frist an den Nachbarn; Wurzeln sofort"
+  },
+  {
+   "id": "F07",
+   "typ": "umgangssprachlich",
+   "frage": "Mein Hund hat beim Spazierengehen einen Jogger ins Bein gebissen. Muss ich für den Schaden aufkommen?",
+   "gold": [
+    "bgb#833"
+   ],
+   "kern": "ja, Tierhalterhaftung"
+  },
+  {
+   "id": "F08",
+   "typ": "umgangssprachlich",
+   "frage": "Mein Vater hat mich in seinem Testament enterbt. Steht mir trotzdem etwas zu?",
+   "gold": [
+    "bgb#2303"
+   ],
+   "kern": "Pflichtteil, Hälfte des gesetzlichen Erbteils"
+  },
+  {
+   "id": "F09",
+   "typ": "umgangssprachlich",
+   "frage": "Kann ich mein Testament einfach selbst mit der Hand schreiben, ohne zum Notar zu gehen?",
+   "gold": [
+    "bgb#2247"
+   ],
+   "kern": "ja, eigenhändig geschrieben und unterschrieben"
+  },
+  {
+   "id": "F10",
+   "typ": "umgangssprachlich",
+   "frage": "Mein Chef will mir kündigen, ich bin seit acht Jahren in der Firma. Mit wie viel Vorlauf muss er das tun?",
+   "gold": [
+    "bgb#622"
+   ],
+   "kern": "drei Monate zum Ende eines Kalendermonats"
+  },
+  {
+   "id": "F11",
+   "typ": "umgangssprachlich",
+   "frage": "Ist eine Kündigung meines Arbeitsvertrags per E-Mail gültig?",
+   "gold": [
+    "bgb#623"
+   ],
+   "kern": "nein, Schriftform, elektronische Form ausgeschlossen"
+  },
+  {
+   "id": "F12",
+   "typ": "umgangssprachlich",
+   "frage": "Der Fliesenleger hat im Bad schief gearbeitet. Kann ich verlangen, dass er das in Ordnung bringt, und wer zahlt das?",
+   "gold": [
+    "bgb#634",
+    "bgb#635"
+   ],
+   "kern": "Nacherfüllung, Kosten trägt der Unternehmer"
+  },
+  {
+   "id": "F13",
+   "typ": "umgangssprachlich",
+   "frage": "Ich habe eine Geldbörse mit 300 Euro gefunden und abgegeben. Bekomme ich eine Belohnung?",
+   "gold": [
+    "bgb#971"
+   ],
+   "kern": "Finderlohn 5 % bis 500 Euro"
+  },
+  {
+   "id": "F14",
+   "typ": "umgangssprachlich",
+   "frage": "Im Winter ist in meiner Wohnung zwei Wochen lang die Heizung ausgefallen. Muss ich trotzdem die volle Miete zahlen?",
+   "gold": [
+    "bgb#536"
+   ],
+   "kern": "nein, Minderung"
+  },
+  {
+   "id": "F15",
+   "typ": "umgangssprachlich",
+   "frage": "Ab welchem Alter kann ein Kind in Deutschland für eine Straftat bestraft werden?",
+   "gold": [
+    "stgb#19"
+   ],
+   "kern": "ab 14 Jahren"
+  },
+  {
+   "id": "F16",
+   "typ": "umgangssprachlich",
+   "frage": "Mich hat jemand auf der Straße angegriffen und ich habe zurückgeschlagen. Mache ich mich damit strafbar?",
+   "gold": [
+    "stgb#32"
+   ],
+   "kern": "nicht rechtswidrig bei erforderlicher Verteidigung"
+  },
+  {
+   "id": "F17",
+   "typ": "umgangssprachlich",
+   "frage": "Ich habe beim Ausparken ein anderes Auto gestreift und bin weitergefahren, weil niemand da war. Ist das ein Problem?",
+   "gold": [
+    "stgb#142"
+   ],
+   "kern": "unerlaubtes Entfernen vom Unfallort, bis drei Jahre"
+  },
+  {
+   "id": "F18",
+   "typ": "umgangssprachlich",
+   "frage": "Darf die Polizei einfach meine Telefongespräche mithören?",
+   "gold": [
+    "gg#10"
+   ],
+   "kern": "Fernmeldegeheimnis, Beschränkung nur auf Grund eines Gesetzes"
+  },
+  {
+   "id": "F19",
+   "typ": "umgangssprachlich",
+   "frage": "Brauche ich eine Genehmigung, wenn ich mit Freunden friedlich auf einem Platz demonstrieren will?",
+   "gold": [
+    "gg#8"
+   ],
+   "kern": "ohne Anmeldung oder Erlaubnis; unter freiem Himmel durch Gesetz beschränkbar"
+  },
+  {
+   "id": "F20",
+   "typ": "umgangssprachlich",
+   "frage": "Wie viele Stunden am Tag darf mich mein Arbeitgeber höchstens arbeiten lassen?",
+   "gold": [
+    "arbzg#3"
+   ],
+   "kern": "acht, bis zehn mit Ausgleich"
+  },
+  {
+   "id": "F21",
+   "typ": "umgangssprachlich",
+   "frage": "Wir sind sieben Leute in einer kleinen Firma. Können wir einen Betriebsrat gründen?",
+   "gold": [
+    "betrvg#1"
+   ],
+   "kern": "ja, ab fünf wahlberechtigten Arbeitnehmern"
+  },
+  {
+   "id": "F22",
+   "typ": "umgangssprachlich",
+   "frage": "Mir wurde gekündigt und ich halte das für unfair. Wie viel Zeit habe ich, dagegen vor Gericht zu gehen?",
+   "gold": [
+    "kschg#4"
+   ],
+   "kern": "drei Wochen nach Zugang"
+  },
+  {
+   "id": "F23",
+   "typ": "umgangssprachlich",
+   "frage": "Ich arbeite seit vier Monaten in einem großen Unternehmen. Kann mir ohne jeden Grund gekündigt werden?",
+   "gold": [
+    "kschg#1"
+   ],
+   "kern": "Kündigungsschutz erst nach mehr als sechs Monaten"
+  },
+  {
+   "id": "F24",
+   "typ": "umgangssprachlich",
+   "frage": "Darf ich eine gekaufte DVD für meine Eltern kopieren?",
+   "gold": [
+    "urhg#53"
+   ],
+   "kern": "einzelne Kopien zum privaten Gebrauch zulässig, nicht von rechtswidriger Vorlage"
+  },
+  {
+   "id": "F25",
+   "typ": "umgangssprachlich",
+   "frage": "In unserer Firma arbeiten 25 Leute ständig mit Kundendaten am Computer. Müssen wir jemanden für den Datenschutz bestimmen?",
+   "gold": [
+    "bdsg#38"
+   ],
+   "kern": "ja, ab 20 Personen"
+  },
+  {
+   "id": "F26",
+   "typ": "fachbegriff",
+   "frage": "Was bewirkt eine Vormerkung im Grundbuch?",
+   "gold": [
+    "bgb#883"
+   ],
+   "kern": "spätere Verfügungen insoweit unwirksam"
+  },
+  {
+   "id": "F27",
+   "typ": "fachbegriff",
+   "frage": "Wann ist ein Rechtsgeschäft wegen Wucher nichtig?",
+   "gold": [
+    "bgb#138"
+   ],
+   "kern": "Ausbeutung einer Zwangslage u. a., auffälliges Missverhältnis"
+  },
+  {
+   "id": "F28",
+   "typ": "fachbegriff",
+   "frage": "Welche Folgen hat ein Scheingeschäft?",
+   "gold": [
+    "bgb#117"
+   ],
+   "kern": "nichtig; verdecktes Geschäft nach seinen Regeln"
+  },
+  {
+   "id": "F29",
+   "typ": "fachbegriff",
+   "frage": "Wie lange gilt beim Verbrauchsgüterkauf die Beweislastumkehr?",
+   "gold": [
+    "bgb#477"
+   ],
+   "kern": "ein Jahr, bei Tieren sechs Monate"
+  },
+  {
+   "id": "F30",
+   "typ": "normzitat",
+   "frage": "Innerhalb welcher Frist muss eine Kündigung nach § 626 BGB erklärt werden?",
+   "gold": [
+    "bgb#626"
+   ],
+   "kern": "zwei Wochen ab Kenntnis"
+  },
+  {
+   "id": "F31",
+   "typ": "normzitat",
+   "frage": "Unter welchen Voraussetzungen muss man nach § 823 BGB Schadensersatz leisten?",
+   "gold": [
+    "bgb#823"
+   ],
+   "kern": "vorsätzliche oder fahrlässige widerrechtliche Verletzung eines geschützten Rechtsguts"
+  },
+  {
+   "id": "F32",
+   "typ": "normzitat",
+   "frage": "Welche Höchststrafe sieht § 263 StGB im Grundfall vor?",
+   "gold": [
+    "stgb#263"
+   ],
+   "kern": "bis fünf Jahre oder Geldstrafe"
+  },
+  {
+   "id": "F33",
+   "typ": "normzitat",
+   "frage": "Wozu verpflichtet Art. 1 GG die staatliche Gewalt?",
+   "gold": [
+    "gg#1"
+   ],
+   "kern": "Würde des Menschen achten und schützen"
+  },
+  {
+   "id": "F34",
+   "typ": "unbeantwortbar",
+   "frage": "Wie hoch ist der gesetzliche Mindestlohn pro Stunde?",
+   "gold": [],
+   "kern": "MiLoG und Verordnung, nicht im Korpus"
+  },
+  {
+   "id": "F35",
+   "typ": "unbeantwortbar",
+   "frage": "Wie viel muss ich bei einem Krankenhausaufenthalt pro Tag zuzahlen?",
+   "gold": [],
+   "kern": "SGB V § 39 Abs. 4, § 61: im Korpus, nicht im Index"
+  },
+  {
+   "id": "F36",
+   "typ": "unbeantwortbar",
+   "frage": "Ab wie vielen Punkten in Flensburg wird der Führerschein entzogen?",
+   "gold": [],
+   "kern": "StVG § 4, nicht im Korpus"
+  },
+  {
+   "id": "F37",
+   "typ": "unbeantwortbar",
+   "frage": "Wie hoch ist der Grundfreibetrag bei der Einkommensteuer?",
+   "gold": [],
+   "kern": "EStG § 32a: im Korpus, nicht im Index; ändert sich jährlich"
+  },
+  {
+   "id": "F38",
+   "typ": "unbeantwortbar",
+   "frage": "Wie lange habe ich Zeit, gegen meinen Steuerbescheid Einspruch einzulegen?",
+   "gold": [],
+   "kern": "AO § 355: im Korpus, nicht im Index"
+  },
+  {
+   "id": "F39",
+   "typ": "unbeantwortbar",
+   "frage": "Wie viele Urlaubstage stehen mir gesetzlich mindestens zu?",
+   "gold": [],
+   "kern": "BUrlG § 3, nicht im Korpus"
+  },
+  {
+   "id": "F40",
+   "typ": "unbeantwortbar",
+   "frage": "Wie lange kann ich Elterngeld bekommen?",
+   "gold": [],
+   "kern": "BEEG § 4, nicht im Korpus"
+  },
+  {
+   "id": "F41",
+   "typ": "unbeantwortbar",
+   "frage": "Welche Angaben muss ein Antrag auf einen Mahnbescheid enthalten?",
+   "gold": [],
+   "kern": "ZPO § 690: im Korpus, nicht im Index"
+  }
+ ]
+}
