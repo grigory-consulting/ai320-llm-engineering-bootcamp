@@ -12,3 +12,29 @@ gbert = AutoTokenizer.from_pretrained(MODELS_DIR / "gbert-base", tokenizer_type=
 for name, t in [("eigener BPE", tok), ("gpt2", gpt2), ("gbert-base", gbert)]:
     size = t.get_vocab_size() if hasattr(t, "get_vocab_size") else len(t)
     print(f"{name:12s} {format_de(size):>7} Einträge")
+
+
+
+n_chars = sum(map(len, holdout))
+words = sum(len(t.split()) for t in holdout)
+count = {
+    "eigener BPE": sum(len(e.ids) for e in tok.encode_batch(holdout)),
+    "gpt2": sum(map(len, gpt2(holdout, add_special_tokens=False)["input_ids"])),
+    "gbert-base": sum(map(len, gbert(holdout, add_special_tokens=False)["input_ids"])),
+}
+print(f"Holdout: {format_de(n_chars)} Zeichen, {format_de(words)} Wörter\n")
+for name, n in count.items():
+    print(f"{name:12s} {format_de(n):>9} Tokens   {format_de(n_chars / n)} Zeichen je Token   {format_de(n / words)} Tokens je Wort")
+nl = "\n"
+per_break = {name: len(l2.ids_of(t, [nl])[0]) for name, t in [("eigener BPE", tok), ("gpt2", gpt2), ("gbert-base", gbert)]}
+print(f"\n{format_de(sum(t.count(nl) for t in holdout))} Zeilenumbrüche im Holdout, Tokens je Umbruch:", per_break)
+
+
+
+
+compound_words = l2.compounds(train, holdout, with_split=True)
+print(f"{len(compound_words)} Komposita im Holdout, zum Beispiel:")
+random.seed(SEED)
+for word, (left, linker, right_part) in random.sample(compound_words, 10):
+    print(f"  {word:28s} = {left} + {linker + ' + ' if linker else ''}{right_part}")
+words_comp = [w for w, _ in compound_words]
