@@ -35,3 +35,22 @@ for name, texts in [("Training", train), ("Holdout", holdout)]:
     print(f"{name:9s} {format_de(len(texts)):>6} Normen {format_de(sum(map(len, texts))):>12} Zeichen")
 print()
 print(holdout[0][:300])
+
+
+
+t0 = time.perf_counter()
+tok = Tokenizer(models.BPE())
+tok.normalizer = normalizers.NFC()
+tok.pre_tokenizer = pre_tokenizers.ByteLevel(add_prefix_space=False)
+tok.decoder = decoders.ByteLevel()
+trainer = trainers.BpeTrainer(
+    vocab_size=8000, min_frequency=2,
+    special_tokens=["<pad>", "<s>", "</s>"],
+    initial_alphabet=pre_tokenizers.ByteLevel.alphabet(),   # alle 256 Bytes
+    show_progress=False)
+tok.train_from_iterator(train, trainer)
+seconds = time.perf_counter() - t0
+
+print(f"Vokabular {format_de(tok.get_vocab_size())} Einträge, Training {format_de(seconds, 1)} s")
+print("Spezialtokens:", {t: tok.token_to_id(t) for t in ["<pad>", "<s>", "</s>"]})
+
