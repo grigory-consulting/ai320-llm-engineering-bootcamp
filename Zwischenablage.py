@@ -38,3 +38,17 @@ random.seed(SEED)
 for word, (left, linker, right_part) in random.sample(compound_words, 10):
     print(f"  {word:28s} = {left} + {linker + ' + ' if linker else ''}{right_part}")
 words_comp = [w for w, _ in compound_words]
+
+
+
+for word in ["Kündigungsschutzgesetz", "Grundstücksverkehrsgesetz", "Verbraucherdarlehensvertrag"]:
+    print(word)
+    print("  eigener BPE ", tok.encode(" " + word).tokens)
+    print("  gpt2        ", gpt2.tokenize(" " + word))
+    print("  gbert-base  ", gbert.tokenize(word))
+print()
+for name, t in [("eigener BPE", tok), ("gpt2", gpt2), ("gbert-base", gbert)]:
+    ids = l2.ids_of(t, [" " + w for w in words_comp])
+    share = sum(len(i) == 1 for i in ids) / len(ids)
+    print(f"{name:12s} Komposita in einem Token {format_de(100 * share, 1):>5} %"
+          f"   Tokens je Kompositum {format_de(np.mean([len(i) for i in ids]))}")
