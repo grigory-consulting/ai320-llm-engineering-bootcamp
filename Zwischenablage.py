@@ -35,3 +35,19 @@ print(f"{len(raw):,} Dokumente".replace(",", "."))
 print(raw["quelle"].value_counts().to_string())
 print("\n--- eine HTML-Seite, wie sie aus der Textextraktion kommt ---")
 print(raw.loc[raw["quelle"] == "gii-html", "text"].iloc[0])
+
+
+
+log = {d: {"navigation_zeilen": 0, "sprache": 0, "pii": None, "dublette": None, "sha256": None,
+           "status": "behalten", "grund": None} for d in raw["doc_id"]}
+
+
+def drop(df: pd.DataFrame, reasons: dict[str, str], status: str = "verworfen") -> pd.DataFrame:
+    """Nimmt die Dokumente aus reasons (doc_id -> Grund) aus df und hält Status und Grund im Protokoll fest."""
+    for d, reason in reasons.items():
+        log[d].update(status=status, grund=reason)
+    return df[~df["doc_id"].isin(reasons)].reset_index(drop=True)
+
+
+df = raw.copy()
+df["norm"] = df["gesetz"].str.cat(df["enbez"], sep=" ") 
