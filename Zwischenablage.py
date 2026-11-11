@@ -51,3 +51,38 @@ def drop(df: pd.DataFrame, reasons: dict[str, str], status: str = "verworfen") -
 
 df = raw.copy()
 df["norm"] = df["gesetz"].str.cat(df["enbez"], sep=" ") 
+
+
+
+NAVIGATION = {"zurück", "weiter", "Nichtamtliches Inhaltsverzeichnis", "zum Seitenanfang", "Impressum",
+              "Datenschutz", "Barrierefreiheitserklärung", "Feedback-Formular"}
+SINGLE_NORM = re.compile(r"^.+ - Einzelnorm$")             # Titelzeile der Seite: "§ 535 BGB - Einzelnorm"
+
+
+def remove_navigation(text: str) -> tuple[str, int]:
+    rows = text.split("\n")
+    rest = [z for z in rows if z.strip() not in NAVIGATION and not SINGLE_NORM.match(z.strip())]
+    return "\n".join(rest), len(rows) - len(rest)
+
+
+def is_placeholder(text: str) -> bool:                    # ganzer Text in Klammern, z. B. "(weggefallen)"
+    t = text.strip()
+    return t == "-" or ("\n" not in t and t.startswith("(") and t.endswith(")") and len(t.split()) <= 8)
+
+
+fresh = df["text"].map(remove_navigation)                 # je Dokument: (Text ohne Navigation, Zahl der Zeilen)
+df["text"] = fresh.str[0]
+for d, n in zip(df["doc_id"], fresh.str[1]):
+    log[d]["navigation_zeilen"] = int(n)
+placeholders = df["text"].map(is_placeholder)
+print("Dokumente mit Navigation:", (fresh.str[1] > 0).sum())
+print("Platzhalter verworfen:   ", placeholders.sum())
+print(df.loc[placeholders, "text"].value_counts().head(6).to_string())
+df = drop(df, dict.fromkeys(df.loc[placeholders, "doc_id"], "platzhalter"))
+print("\n--- dieselbe HTML-Seite danach ---")
+print(df.loc[df["quelle"] == "gii-html", "text"].iloc[0])
+
+
+
+
+
