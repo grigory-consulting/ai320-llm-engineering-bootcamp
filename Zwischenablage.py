@@ -31,3 +31,32 @@ def build(config):
 
 
 model, optimizer, scheduler = build(config)
+
+
+
+
+
+
+
+
+def train_step(model, optimizer, scheduler, step):
+    x, y = get_batch(train_data, config["batch"], config["seq_len"])
+    loss = F.cross_entropy(model(x).flatten(0, 1), y.flatten())
+    loss.backward()
+    grad_norm = torch.nn.utils.clip_grad_norm_(model.parameters(), config["clip"])
+    lr = scheduler.get_last_lr()[0]
+    optimizer.step()
+    scheduler.step()
+    optimizer.zero_grad(set_to_none=True)
+    return {"loss": loss.item(), "grad_norm": grad_norm.item(), "lr": lr}
+
+
+@torch.no_grad()
+def holdout_loss(model, n=128, seq_len=256):
+    model.eval()
+    starts = np.linspace(0, len(val_data) - seq_len - 2, n).astype(np.int64)
+    w = torch.stack([torch.from_numpy(val_data[j : j + seq_len + 1].astype(np.int64)) for j in starts])
+    losses = [F.cross_entropy(model(b[:, :-1]).flatten(0, 1), b[:, 1:].flatten()).item() for b in w.split(16)]
+    model.train()
+    return float(np.mean(losses))
+
