@@ -1,68 +1,14 @@
-import os, sys
-from pathlib import Path
-
-for candidate in (Path.cwd(), Path.cwd() / "labs", *Path.cwd().parents):
-    if (candidate / "common" / "paths.py").exists():
-        os.chdir(candidate)
-        sys.path.insert(0, str(candidate))
-        break
-
-import json, re, time
-import numpy as np
-import pandas as pd
-from common import corpus, lab5_rag as lab5
-from common.paths import MODELS_DIR, SEED
-
-device = "cpu"
-pd.set_option("display.width", 140, "display.max_colwidth", 90)
-print("Lab-Ordner:", Path.cwd())
+@torch.no_grad()
+def holdout_perplexity(model, val, seq_len=256):
+    n = (len(val) - 1) // seq_len
+    w = torch.from_numpy(val[: n * seq_len + 1].astype(np.int64))
+    x, y = w[:-1].view(n, seq_len), w[1:].view(n, seq_len)
+    total = sum(F.cross_entropy(model(xb).flatten(0, 1), yb.flatten(), reduction="sum").item()
+                for xb, yb in zip(x.split(16), y.split(16)))
+    loss = total / y.numel()
+    return loss, math.exp(loss), y.numel()
 
 
-
-
-
-norms = lab5.index_norms(corpus.load())
-
-
-def chunks(df, max_chars=1500):
-    rows = []
-    for r in df.itertuples():
-        nid = lab5.norm_id(r.gesetz, r.enbez)                  # "BGB", "§ 438" -> "bgb#438"
-        head = f"{r.gesetz} {r.enbez} {r.titel}".strip()
-        paragraphs = r.text.split("\n")
-        if len(r.text) <= max_chars or len(paragraphs) == 1:
-            pieces = [(nid, r.text)]
-        else:
-            pieces = [(f"{nid}-{i}", a) for i, a in enumerate(paragraphs, 1)]
-        for cid, text in pieces:
-            rows.append({"id": cid, "norm": nid, "text": f"{head}\n{text}", "builddate": r.builddate})
-    return pd.DataFrame(rows)
-
-
-ch = chunks(norms)
-text_of = dict(zip(ch.id, ch.text))
-print(f"{len(norms)} Normen -> {len(ch)} Chunks, im Mittel {ch.text.str.len().mean():.0f} Zeichen")
-print(ch[ch.norm.isin(["bgb#438", "bgb#622"])][["id", "text"]].assign(text=lambda d: d.text.str[:80]).to_string(index=False))
-
-
-
-
-from sentence_transformers import SentenceTransformer
-
-model = SentenceTransformer(str(MODELS_DIR / "e5-small"), device=device)
-E = lab5.embeddings("gemischt", ch,
-                    lambda: model.encode(["passage: " + t for t in ch.text], batch_size=32,
-                                         normalize_embeddings=True, show_progress_bar=True))
-ids = ch.id.tolist()
-print("Matrix:", E.shape, E.dtype)
-
-
-def dense(question, k=50):
-    q = model.encode(["query: " + question], normalize_embeddings=True)[0]
-    scores = E @ q                                              # Kosinus = Skalarprodukt
-    return [ids[i] for i in np.argsort(-scores, kind="stable")[:k]]
-
-
-question = "Wie lange kann ich Mängel an einer gekauften Sache geltend machen?"
-for cid in dense(question, k=5):
-    print(f"{cid:12s} {text_of[cid][:90]}")
+t0 = time.perf_counter()
+loss_p, ppl_p, n_tok = holdout_perplexity(model_p, val_p)
+print(f"Holdout: {lab3_data.format_de(n_tok)} Zielpositionen, Loss {loss_p:.3f}, Perplexity {ppl_p:.1f}  ({time.perf_counter() - t0:.1f} s)")
