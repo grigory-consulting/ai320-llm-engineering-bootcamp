@@ -1,36 +1,3 @@
-
-
-
-
-
-
-log = []
-t0 = time.perf_counter()
-for step in range(0, 100):
-    row = train_step(model, optimizer, scheduler, step)
-    log.append(row)
-    if (step + 1) % 20 == 0:
-        print(f"Schritt {step + 1:4d}  Loss {row['loss']:.3f}  Grad-Norm {row['grad_norm']:.2f}  LR {row['lr']:.2e}")
-print(f"{time.perf_counter() - t0:.1f} s")
-
-
-def plot_log(log, title=""):
-    fig, ax = plt.subplots(3, 1, figsize=(8, 5.5), sharex=True)
-    for a, key, label in zip(ax, ["loss", "grad_norm", "lr"], ["Loss", "Grad-Norm", "Lernrate"]):
-        a.plot([r[key] for r in log], lw=1)
-        a.set_ylabel(label)
-    ax[1].axhline(config["clip"], color="grey", ls="--", lw=0.8)
-    ax[-1].set_xlabel("Schritt")
-    ax[0].set_title(title)
-    plt.tight_layout()
-    plt.show()
-
-
-plot_log(log, "Erste 100 Schritte")
-
-
-
-
 import json
 
 ref = Path("reference")
@@ -42,3 +9,23 @@ model_p = MiniGPT().to(device)
 model_p.load_state_dict(sd)
 model_p.eval()
 
+# Tokenizer und Holdout passend zum vorbereiteten Lauf (gleicher Split, gleicher Tokenizer)
+tok_p, val_p = lab3_data.prepared_tokenizer_and_holdout(prep, datatok_p, val_p = lab3_data.prepared_tokenizer_and_holdout(prep, data))
+print(prep["config"])
+
+
+
+@torch.no_grad()
+def generate(model, prompt, n_new=80, temperature=0.8):
+    idx = torch.tensor([tok_p.encode(prompt).ids], device=device)
+    for _ in range(n_new):
+        logits = model(idx[:, -256:])[:, -1, :] / temperature
+        probs = torch.softmax(logits, dim=-1)
+        idx = torch.cat([idx, torch.multinomial(probs, num_samples=1)], dim=1)
+    return tok_p.decode(idx[0].tolist())
+
+
+torch.manual_seed(SEED)
+for temperature in (0.8, 1.5):
+    print(f"--- Temperatur {temperature}")
+    print(generate(model_p, "§ 12 Pflichten des Arbeitgebers\n(1) Der Arbeitgeber", temperature=temperature))
