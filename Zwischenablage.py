@@ -10,7 +10,7 @@ model_p.load_state_dict(sd)
 model_p.eval()
 
 # Tokenizer und Holdout passend zum vorbereiteten Lauf (gleicher Split, gleicher Tokenizer)
-tok_p, val_p = lab3_data.prepared_tokenizer_and_holdout(prep, datatok_p, val_p = lab3_data.prepared_tokenizer_and_holdout(prep, data))
+tok_p, val_p = lab3_data.prepared_tokenizer_and_holdout(prep, data)
 print(prep["config"])
 
 
