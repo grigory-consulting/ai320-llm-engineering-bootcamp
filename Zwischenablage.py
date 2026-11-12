@@ -1,31 +1,68 @@
-import json
+import os, sys
+from pathlib import Path
 
-ref = Path("reference")
-prep = json.loads((ref / "lab3_langer_lauf.json").read_text(encoding="utf-8"))
-sd = torch.load(ref / "lab3_langer_lauf.pt", weights_only=True)    # nur Tensoren: weights_only=True genügt
-sd = {k: v.float() for k, v in sd.items()}
-sd["head.weight"] = sd["tok.weight"]                                # Weight Tying: eine Matrix, zwei Schlüssel
-model_p = MiniGPT().to(device)
-model_p.load_state_dict(sd)
-model_p.eval()
+for candidate in (Path.cwd(), Path.cwd() / "labs", *Path.cwd().parents):
+    if (candidate / "common" / "paths.py").exists():
+        os.chdir(candidate)
+        sys.path.insert(0, str(candidate))
+        break
 
-# Tokenizer und Holdout passend zum vorbereiteten Lauf (gleicher Split, gleicher Tokenizer)
-tok_p, val_p = lab3_data.prepared_tokenizer_and_holdout(prep, data)
-print(prep["config"])
+import json, re, time
+import numpy as np
+import pandas as pd
+from common import corpus, lab5_rag as lab5
+from common.paths import MODELS_DIR, SEED
 
-
-
-@torch.no_grad()
-def generate(model, prompt, n_new=80, temperature=0.8):
-    idx = torch.tensor([tok_p.encode(prompt).ids], device=device)
-    for _ in range(n_new):
-        logits = model(idx[:, -256:])[:, -1, :] / temperature
-        probs = torch.softmax(logits, dim=-1)
-        idx = torch.cat([idx, torch.multinomial(probs, num_samples=1)], dim=1)
-    return tok_p.decode(idx[0].tolist())
+device = "cpu"
+pd.set_option("display.width", 140, "display.max_colwidth", 90)
+print("Lab-Ordner:", Path.cwd())
 
 
-torch.manual_seed(SEED)
-for temperature in (0.8, 1.5):
-    print(f"--- Temperatur {temperature}")
-    print(generate(model_p, "§ 12 Pflichten des Arbeitgebers\n(1) Der Arbeitgeber", temperature=temperature))
+
+
+
+norms = lab5.index_norms(corpus.load())
+
+
+def chunks(df, max_chars=1500):
+    rows = []
+    for r in df.itertuples():
+        nid = lab5.norm_id(r.gesetz, r.enbez)                  # "BGB", "§ 438" -> "bgb#438"
+        head = f"{r.gesetz} {r.enbez} {r.titel}".strip()
+        paragraphs = r.text.split("\n")
+        if len(r.text) <= max_chars or len(paragraphs) == 1:
+            pieces = [(nid, r.text)]
+        else:
+            pieces = [(f"{nid}-{i}", a) for i, a in enumerate(paragraphs, 1)]
+        for cid, text in pieces:
+            rows.append({"id": cid, "norm": nid, "text": f"{head}\n{text}", "builddate": r.builddate})
+    return pd.DataFrame(rows)
+
+
+ch = chunks(norms)
+text_of = dict(zip(ch.id, ch.text))
+print(f"{len(norms)} Normen -> {len(ch)} Chunks, im Mittel {ch.text.str.len().mean():.0f} Zeichen")
+print(ch[ch.norm.isin(["bgb#438", "bgb#622"])][["id", "text"]].assign(text=lambda d: d.text.str[:80]).to_string(index=False))
+
+
+
+
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer(str(MODELS_DIR / "e5-small"), device=device)
+E = lab5.embeddings("gemischt", ch,
+                    lambda: model.encode(["passage: " + t for t in ch.text], batch_size=32,
+                                         normalize_embeddings=True, show_progress_bar=True))
+ids = ch.id.tolist()
+print("Matrix:", E.shape, E.dtype)
+
+
+def dense(question, k=50):
+    q = model.encode(["query: " + question], normalize_embeddings=True)[0]
+    scores = E @ q                                              # Kosinus = Skalarprodukt
+    return [ids[i] for i in np.argsort(-scores, kind="stable")[:k]]
+
+
+question = "Wie lange kann ich Mängel an einer gekauften Sache geltend machen?"
+for cid in dense(question, k=5):
+    print(f"{cid:12s} {text_of[cid][:90]}")
