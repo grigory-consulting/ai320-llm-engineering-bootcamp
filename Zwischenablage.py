@@ -27,3 +27,18 @@ def plot_log(log, title=""):
 
 
 plot_log(log, "Erste 100 Schritte")
+
+
+
+
+import json
+
+ref = Path("reference")
+prep = json.loads((ref / "lab3_langer_lauf.json").read_text(encoding="utf-8"))
+sd = torch.load(ref / "lab3_langer_lauf.pt", weights_only=True)    # nur Tensoren: weights_only=True genügt
+sd = {k: v.float() for k, v in sd.items()}
+sd["head.weight"] = sd["tok.weight"]                                # Weight Tying: eine Matrix, zwei Schlüssel
+model_p = MiniGPT().to(device)
+model_p.load_state_dict(sd)
+model_p.eval()
+
