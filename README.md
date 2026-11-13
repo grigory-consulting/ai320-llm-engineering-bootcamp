@@ -1,5 +1,7 @@
 # Einrichtung der Kursrechner
 
+Folien zum Mitlesen: <https://grigory-consulting.github.io/ai320-llm-engineering-bootcamp/>
+
 ## Voraussetzungen
 
 - Debian 13 (x86_64). Eine GPU ist nicht nötig.
