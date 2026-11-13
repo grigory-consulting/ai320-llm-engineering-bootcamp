@@ -1,21 +1,43 @@
-import os, time, json
-from pathlib import Path
-from dotenv import load_dotenv, find_dotenv
-
-ENV_FILE = find_dotenv(usecwd=True)          # sucht .env ab dem Notebook-Ordner (labs/.env)
-print("Konfiguration aus:", ENV_FILE or "keine .env gefunden, Defaults (OpenAI, gpt-4.1)")
-load_dotenv(ENV_FILE, override=True)   # override: CrewAI lädt beim Import schon eine .env aus einem Elternordner
-os.environ.setdefault("CREWAI_DISABLE_TELEMETRY", "true")
-os.environ.setdefault("OTEL_SDK_DISABLED", "true")
-
-LLM_BASE_URL = os.environ.get("LLM_BASE_URL", "https://api.openai.com/v1")
-LLM_API_KEY = os.environ.get("LLM_API_KEY", "")
-LLM_MODEL = os.environ.get("LLM_MODEL", "gpt-4.1")
-
-from pydantic import BaseModel
-from crewai import Agent, Task, Crew, Process, LLM, TaskOutput
-
-
-llm = LLM(model=f"openai/{LLM_MODEL}", base_url=LLM_BASE_URL, api_key=LLM_API_KEY, temperature=0.1)
-print("Modell:", llm.model, "| Endpunkt:", LLM_BASE_URL)
-print("LLM antwortet:", llm.call("Antworte nur mit OK.")[:40])
+diff --git a/shop/rabatt.py b/shop/rabatt.py
+index 3f1c2a9..8be47d1 100644
+--- a/shop/rabatt.py
++++ b/shop/rabatt.py
+@@ -1,12 +1,37 @@
+ """Preisberechnung für den Webshop."""
+ 
+ from decimal import Decimal
++
++# Rabattstaffel: ab Bestellwert (inklusive) gilt der Prozentsatz.
++# 0 bis 99,99 EUR: 0 %, 100 bis 499,99 EUR: 5 %, ab 500 EUR: 10 %
++STAFFEL = [
++    (Decimal("500"), Decimal("0.10")),
++    (Decimal("100"), Decimal("0.05")),
++]
++
++
++def rabattsatz(bestellwert: Decimal) -> Decimal:
++    """Liefert den Rabattsatz für einen Bestellwert."""
++    if bestellwert < 0:
++        raise ValueError("Bestellwert darf nicht negativ sein")
++    for grenze, satz in STAFFEL:
++        if bestellwert > grenze:
++            return satz
++    return Decimal("0")
++
++
++def rabattierter_preis(bestellwert: Decimal) -> Decimal:
++    """Bestellwert abzüglich Staffelrabatt, auf Cent gerundet."""
++    preis = bestellwert * (Decimal("1") - rabattsatz(bestellwert))
++    return preis.quantize(Decimal("0.01"))
++
+ 
+ def brutto(netto: Decimal, mwst: Decimal = Decimal("0.19")) -> Decimal:
+     """Nettopreis plus Mehrwertsteuer."""
+     return (netto * (Decimal("1") + mwst)).quantize(Decimal("0.01"))
+ 
+ 
+-def endpreis(netto: Decimal) -> Decimal:
+-    return brutto(netto)
++def endpreis(netto: Decimal) -> Decimal:
++    """Endpreis: erst Staffelrabatt auf den Nettowert, dann Mehrwertsteuer."""
++    return brutto(rabattierter_preis(netto))
