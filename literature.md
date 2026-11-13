@@ -4,3 +4,4 @@
 - https://arxiv.org/html/2510.13928v3
 - https://github.com/jordan-gibbs/hyperresearch
 - https://arxiv.org/pdf/2603.20278
+- https://dspy.ai/current/
