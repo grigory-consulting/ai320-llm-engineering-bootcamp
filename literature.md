@@ -12,3 +12,4 @@
 - https://learning.oreilly.com/library/view/harness-engineering/0642572422783/
 - https://www.linkedin.com/in/alindnbrg/
 - https://www.youtube.com/@AndrejKarpathy/videos
+- https://sebastianraschka.com
