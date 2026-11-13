@@ -1,6 +1,12 @@
 
 
 
+questions = lab5.load_questions()
+gold_questions = [f for f in questions if f["gold"]]
+print(pd.Series([f["typ"] for f in questions]).value_counts().to_string())
+for f in questions[:2] + questions[25:26] + questions[29:30]:
+    print(f"\n{f['id']} [{f['typ']}] {f['frage']}\n    Gold: {f['gold']}")
+
 
 
 
