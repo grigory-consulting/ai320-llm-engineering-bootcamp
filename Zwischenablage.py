@@ -32,6 +32,21 @@ def rank(ranking, gold):                     # erster Chunk, der zu einer Gold-N
 
 
 
+retriever = {"dense": dense, "bm25": bm25_search, "hybrid": hybrid}
+result = {name: lab5.evaluate({f["id"]: fn(f["frage"], 50) for f in gold_questions}, gold_questions)
+            for name, fn in retriever.items()}
+table_df = pd.DataFrame({name: {"MRR": b.rr.mean(), **b[["R@1", "R@5", "R@10", "R@50"]].mean()}
+                        for name, b in result.items()}).T
+table_df.round(3)
+
+
+
+
+
+
+
+
+
 def compose(question, hits):
     sources = "\n\n".join(f'<quelle id="{d}">\n{text_of[d][:2500]}\n</quelle>' for d in hits)
     system = ("Beantworten Sie die Frage nur aus den Quellen. "
