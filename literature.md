@@ -10,3 +10,5 @@
 - https://learning.oreilly.com/library/view/hands-on-rag-for/9798341621701/
 - https://learning.oreilly.com/library/view/hands-on-large-language/9781098150952/
 - https://learning.oreilly.com/library/view/harness-engineering/0642572422783/
+- https://www.linkedin.com/in/alindnbrg/
+- https://www.youtube.com/@AndrejKarpathy/videos
